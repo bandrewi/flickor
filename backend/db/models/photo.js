@@ -5,8 +5,13 @@ module.exports = (sequelize, DataTypes) => {
     imageUrl: DataTypes.STRING,
     content: DataTypes.TEXT
   }, {});
-  Photo.associate = function(models) {
-    // associations can be defined here
+  Photo.associate = function (models) {
+    Photo.belongsTo(models.User, { foreignKey: 'userId' })
+    Photo.belongsToMany(models.Album, {
+      through: 'AlbumPhotos', //could be an error in this, based on petsonality the table name is camelCase
+      foreignKey: 'photoId',
+      otherKey: 'albumId'
+    })
   };
   return Photo;
 };
