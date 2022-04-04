@@ -1,9 +1,21 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { check } = require('express-validator');
 
+const { handleValidationErrors } = require('../../utils/validation');
 const { Photo } = require('../../db/models');
 
 const router = express.Router();
+
+validatePhoto = [
+    check('imageUrl')
+        .isURL()
+        .withMessage('Please provide a valid image URL.'),
+    check('content')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a description for your image.'),
+    handleValidationErrors
+]
 
 //Get photo
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
@@ -14,7 +26,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 }))
 
 //Upload(create) photo
-router.post('/new', asyncHandler(async (req, res) => {
+router.post('/new', validatePhoto, asyncHandler(async (req, res) => {
     const { userId, imageUrl, content } = req.body;
 
     const photo = await Photo.create({
@@ -27,7 +39,7 @@ router.post('/new', asyncHandler(async (req, res) => {
 }))
 
 //Update photo
-router.put('/:id(\\d+)/edit', asyncHandler(async (req, res) => {
+router.put('/:id(\\d+)/edit', validatePhoto, asyncHandler(async (req, res) => {
     const id = req.params.id;
     const { imageUrl, content } = req.body
     const photo = await Photo.findByPk(id);
