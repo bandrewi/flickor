@@ -26,4 +26,17 @@ router.post('/new', asyncHandler(async (req, res) => {
     return res.json({ photo });
 }))
 
+//Update photo
+router.put('/:id(\\d+)/edit', asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const { imageUrl, content } = req.body
+    const photo = await Photo.findByPk(id);
+
+    photo.imageUrl = imageUrl;
+    photo.content = content;
+    await photo.save();
+
+    return res.json({ photo });
+}))
+
 module.exports = router
