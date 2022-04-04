@@ -13,5 +13,17 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     return res.json({ photo });
 }))
 
+//Upload(create) photo
+router.post('/new', asyncHandler(async (req, res) => {
+    const { userId, imageUrl, content } = req.body;
+
+    const photo = await Photo.create({
+        userId,
+        imageUrl,
+        content
+    });
+
+    return res.json({ photo });
+}))
 
 module.exports = router
