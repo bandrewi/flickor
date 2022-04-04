@@ -39,4 +39,14 @@ router.put('/:id(\\d+)/edit', asyncHandler(async (req, res) => {
     return res.json({ photo });
 }))
 
+//Delete photo
+router.delete('/:id(\\d+)/delete', asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const photo = await Photo.findByPk(id)
+
+    await photo.destroy();
+
+    return res.json({ message: 'success' })
+}))
+
 module.exports = router
