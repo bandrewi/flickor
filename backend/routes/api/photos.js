@@ -18,6 +18,16 @@ validatePhoto = [
     handleValidationErrors
 ]
 
+//Get photos
+router.get('/', asyncHandler(async (req, res) => {
+    const photos = await Photo.findAll({
+        limit: 10,
+        //could possibly add other filters like most favorited, most recent etc
+    })
+
+    return res.json({ photos });
+}))
+
 //Get photo
 router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     const id = req.params.id;
