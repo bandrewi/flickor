@@ -1,4 +1,4 @@
-export default function You() {
+export default function UserPhoto() {
     return (
         <div>
 
