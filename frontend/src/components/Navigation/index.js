@@ -12,7 +12,7 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <NavLink to='profile'>Your Photos</NavLink>
+                <NavLink to='/photos'>Your Photos</NavLink>
                 <UploadButton />
                 <ProfileButton user={sessionUser} />
             </>
