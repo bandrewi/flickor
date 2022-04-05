@@ -4,10 +4,6 @@ const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    fullName: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -26,14 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [3, 256]
       }
-    },
-    banner: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    profilePic: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
