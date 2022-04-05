@@ -28,6 +28,20 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json({ photos });
 }))
 
+//Get user photos
+router.get('/user', restoreUser, asyncHandler(async (req, res) => {
+    const { id } = req.user
+
+    const photos = await Photo.findAll({
+        limit: 10,
+        where: {
+            userId: id
+        }
+    })
+
+    return res.json({ photos });
+}))
+
 //Get photo
 router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     const id = req.params.id;
