@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { Photo } = require('../../db/models');
-const { requireAuth } = require('../../utils/auth');
+const { requireAuth, restoreUser } = require('../../utils/auth');
 
 const router = express.Router();
 
@@ -37,11 +37,12 @@ router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
 }))
 
 //Upload(create) photo
-router.post('/new', requireAuth, validatePhoto, asyncHandler(async (req, res) => {
-    const { userId, imageUrl, content } = req.body;
-
+router.post('/new', restoreUser, requireAuth, validatePhoto, asyncHandler(async (req, res) => {
+    const { imageUrl, content } = req.body;
+    const { id } = req.user
+    //console.log('------------------------------ID', id)
     const photo = await Photo.create({
-        userId,
+        userId: id,
         imageUrl,
         content
     });
