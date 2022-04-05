@@ -3,11 +3,19 @@ import { csrfFetch } from "./csrf"
 const ADD = 'photo/ADD'
 const DELETE = 'photo/DELETE'
 const LOAD = 'photos/LOAD'
+const LOAD_ONE = '/photos/LOAD_ONE'
 
 const addPhoto = (photo) => ({
     type: ADD,
     photo: photo.photo
 })
+
+const loadPhoto = (photo) => {
+    return {
+        type: LOAD_ONE,
+        photo: photo.photo
+    }
+}
 
 const loadPhotos = (photoList) => {
     const { photos } = photoList
@@ -21,6 +29,13 @@ const removePhoto = (id) => ({
     type: DELETE,
     id
 })
+
+
+export const getPhoto = (id) => async (dispatch) => {
+    const res = await csrfFetch(`/api/photos/${id}`)
+    const photo = await res.json()
+    dispatch(loadPhoto(photo))
+}
 
 export const getPhotos = () => async (dispatch) => {
     const res = await csrfFetch('/api/photos')
@@ -56,6 +71,10 @@ const initializedState = {};
 export default function photoReducer(state = initializedState, action) {
     let newState;
     switch (action.type) {
+        case LOAD_ONE:
+            newState = { ...state }
+            newState[action.photo.id] = action.photo
+            return newState
         case LOAD:
             newState = { ...state }
             action.photos.forEach(photo => newState[photo.id] = photo)
