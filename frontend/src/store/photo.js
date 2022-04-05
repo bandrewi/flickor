@@ -29,10 +29,10 @@ export const getPhotos = () => async (dispatch) => {
 }
 
 export const uploadPhoto = (photo) => async (dispatch) => {
-    const { userId, imageUrl, content } = photo
+    const { imageUrl, content } = photo
     const res = await csrfFetch('/api/photos/new', {
         method: 'POST',
-        body: JSON.stringify({ userId, imageUrl, content })
+        body: JSON.stringify({ imageUrl, content })
     })
     const newPhoto = await res.json()
     dispatch(addPhoto(newPhoto))

@@ -4,25 +4,19 @@ import { uploadPhoto } from "../../store/photo";
 
 export default function UploadPage() {
     const dispatch = useDispatch();
-    const sessionUserId = useSelector(state => state.session.user.id)
     const [imageUrl, setImageUrl] = useState('');
     const [content, setContent] = useState(''); //for this proj, synonymous w/ title
     const [errors, setErrors] = useState([]);
 
-    console.log('render userId', sessionUserId)
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log('handlesubmit userId', sessionUserId)
-        if (sessionUserId) {
+        return dispatch(uploadPhoto({ imageUrl, content }))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            });
 
-            return dispatch(uploadPhoto({ sessionUserId, imageUrl, content }))
-                .catch(async (res) => {
-                    const data = await res.json();
-                    if (data && data.errors) setErrors(data.errors);
-                });
-        }
     }
 
     return (
@@ -31,7 +25,6 @@ export default function UploadPage() {
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <form onSubmit={handleSubmit}>
-                {/* <input hidden value={sessionUserId} /> */}
                 <label>
                     Image URL:
                     <input
