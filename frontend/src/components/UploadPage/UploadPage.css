@@ -1,0 +1,30 @@
+/* #upload-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%
+} */
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%
+}
+
+#image {
+    margin: 5px
+}
+
+#content {
+    margin: 5px
+}
+
+#btn {
+    margin: 5px;
+}
