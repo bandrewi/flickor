@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 import { getUserPhotos } from "../../store/photo";
 
-export default function Photos() {
+export default function UserPhotos() {
     const dispatch = useDispatch();
-    const photos = useSelector(state => Object.values(state.photos))
+    const photosArr = useSelector(state => Object.values(state.photos))
 
     useEffect(() => {
         dispatch(getUserPhotos())
@@ -14,9 +14,9 @@ export default function Photos() {
 
     return (
         <div>
-            {photos.length > 0 && (
+            {photosArr.length > 0 && (
                 <ul>
-                    {photos.map(photo =>
+                    {photosArr.map(photo =>
                     (
                         <li key={photo.id}>
                             <Link to={`/photos/${photo.id}`}>
