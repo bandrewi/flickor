@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Photo from '../Photo'
 
 export default function UserHome({ photos }) {
-    //dont want photos from user may have to make another get router
+
     return (
         <div>
             <ul>
@@ -16,10 +16,5 @@ export default function UserHome({ photos }) {
                 ))}
             </ul>
         </div>
-        // <>
-        //     {photos.length > 0 && (
-        //     )
-        //     }
-        // </>
     )
 }

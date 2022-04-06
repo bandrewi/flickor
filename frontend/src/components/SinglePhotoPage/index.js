@@ -6,12 +6,13 @@ import { deletePhoto, editPhoto, getPhoto } from "../../store/photo";
 
 export default function Photo() {
     const dispatch = useDispatch();
-    const { id } = useParams()
     const photos = useSelector(state => state.photos)
-    const photo = photos[id]
-    const history = useHistory()
+    const sessionUserId = useSelector(state => state.session.user.id)
     const [editClicked, setEditClicked] = useState(false)
     const [content, setContent] = useState('')
+    const { id } = useParams()
+    const history = useHistory()
+    const photo = photos[id]
 
     //using another useEffect is redundant when refactoring try passing photos in as a prop
     useEffect(() => {
@@ -54,8 +55,12 @@ export default function Photo() {
                             <button type='submit'>Submit Changes</button>
                         </form>
                     )}
-                    <button onClick={handleEdit}>Edit</button>
-                    <button onClick={handleDelete}>Delete</button>
+                    {sessionUserId === photo.userId && (
+                        <>
+                            <button onClick={handleDelete}>Delete</button>
+                            <button onClick={handleEdit}>Edit</button>
+                        </>
+                    )}
                 </div>
 
             )}
