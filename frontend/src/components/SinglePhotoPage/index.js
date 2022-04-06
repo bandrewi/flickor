@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { deletePhoto, editPhoto, getPhoto } from "../../store/photo";
 
+import './SinglePhoto.css'
 
 export default function Photo() {
     const dispatch = useDispatch();
@@ -42,27 +43,28 @@ export default function Photo() {
     return (
         <>
             {photo && (
-                <div>
-                    <img src={photo.imageUrl} />
-                    {!editClicked && <div>{photo.content}</div>}
-                    {editClicked && (
-                        <form onSubmit={handleSubmit}>
-                            <input
-                                type='text'
-                                value={content}
-                                onChange={e => setContent(e.target.value)}
-                            />
-                            <button type='submit'>Submit Changes</button>
-                        </form>
-                    )}
-                    {sessionUserId === photo.userId && (
-                        <>
-                            <button onClick={handleDelete}>Delete</button>
-                            <button onClick={handleEdit}>Edit</button>
-                        </>
-                    )}
+                <div id='photo-container'>
+                    <img id='image' src={photo.imageUrl} />
+                    <div>
+                        {!editClicked && <div id="content">{photo.content}</div>}
+                        {editClicked && (
+                            <form onSubmit={handleSubmit}>
+                                <input
+                                    type='text'
+                                    value={content}
+                                    onChange={e => setContent(e.target.value)}
+                                />
+                                <button type='submit'>Submit Changes</button>
+                            </form>
+                        )}
+                        {sessionUserId === photo.userId && (
+                            <div>
+                                <button id='edit' onClick={handleEdit}>Edit</button>
+                                <button id='delete' onClick={handleDelete}>Delete</button>
+                            </div>
+                        )}
+                    </div>
                 </div>
-
             )}
         </>
     )
