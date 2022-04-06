@@ -1,5 +1,7 @@
+import './Photo.css'
+
 export default function Photo({ photo }) {
     return (
-        <img src={photo.imageUrl} />
+        <img id='photo' src={photo.imageUrl} />
     )
 }
