@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { login } from "../../store/session";
 
+import './NonUserHome.css'
+
 export default function NonUserHome({ photos }) {
     const dispatch = useDispatch();
     const [photoNum, setPhotoNum] = useState(0);
@@ -24,8 +26,8 @@ export default function NonUserHome({ photos }) {
         <>
             {
                 photos.length > 0 && (
-                    <div>
-                        <img id='bg' src={photos[photoNum].imageUrl} />
+                    <div id='nonuserhome-photo-container'>
+                        <img id='nonuserhome-photo' src={photos[photoNum].imageUrl} />
                         <div>Find your inspiration.</div>
                         <div>Join the Flickor community, home to some photos and a couple of users</div>
                         <div>
