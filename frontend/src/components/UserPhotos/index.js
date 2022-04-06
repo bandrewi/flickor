@@ -17,7 +17,7 @@ export default function UserPhotos() {
     return (
         <div>
             {photosArr.length > 0 && (
-                <ul id='photos-container'>
+                <ul id='userphotos-container'>
                     {photosArr.map(photo =>
                     (
                         <li key={photo.id}>
