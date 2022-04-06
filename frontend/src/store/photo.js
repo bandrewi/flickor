@@ -45,6 +45,7 @@ export const uploadPhoto = (photo) => async (dispatch) => {
     })
     const newPhoto = await res.json()
     dispatch(addPhoto(newPhoto))
+    return newPhoto
 }
 
 export const deletePhoto = (id) => async (dispatch) => {
