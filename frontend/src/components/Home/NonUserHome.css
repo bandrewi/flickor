@@ -1,0 +1,12 @@
+#nonuserhome-photo-container {
+    position: relative;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#nonuserhome-photo {
+    height: 500px;
+}

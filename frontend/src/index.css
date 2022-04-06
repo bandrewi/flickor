@@ -1,1 +1,6 @@
 /* TODO Add site wide styles */
+
+body {
+    background-color: rgba(243, 245, 246, 255);
+    box-sizing: border-box;
+}

@@ -1,0 +1,20 @@
+#single-photo-container {
+    position: relative;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit {
+    margin: 2px;
+}
+
+#delete {
+    margin: 2px;
+}
+
+#single-photo {
+    height: 500px;
+}

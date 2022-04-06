@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { uploadPhoto } from "../../store/photo";
 
+import './UploadPage.css'
+
 export default function UploadPage() {
     const dispatch = useDispatch();
     const [imageUrl, setImageUrl] = useState('');
@@ -23,30 +25,34 @@ export default function UploadPage() {
     }
 
     return (
-        <div>
+        <div id="upload-form-container">
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Image URL:
-                    <input
-                        type='text'
-                        value={imageUrl}
-                        onChange={e => setImageUrl(e.target.value)}
-                    // required
-                    />
-                </label>
-                <label>
-                    Description:
-                    <input
-                        type='text'
-                        value={content}
-                        onChange={e => setContent(e.target.value)}
-                    // required
-                    />
-                </label>
-                <button type='submit'>Upload</button>
+            <form id='form' onSubmit={handleSubmit}>
+                <div id='image'>
+                    <label>
+                        Image URL:
+                        <input
+                            type='text'
+                            value={imageUrl}
+                            onChange={e => setImageUrl(e.target.value)}
+                        // required
+                        />
+                    </label>
+                </div>
+                <div id='content'>
+                    <label>
+                        Description:
+                        <input
+                            type='text'
+                            value={content}
+                            onChange={e => setContent(e.target.value)}
+                        // required
+                        />
+                    </label>
+                </div>
+                <button id='btn' type='submit'>Upload</button>
             </form>
         </div>
     )
