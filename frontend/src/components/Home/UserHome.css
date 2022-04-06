@@ -1,0 +1,5 @@
+#userhome-photo-container {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+}
