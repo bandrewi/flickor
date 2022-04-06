@@ -21,7 +21,7 @@ export default function Home() {
     //so that the same photos dont show up on both userhome and nonuserhome
     if (sessionUser) {
         homePage = (
-            <UserHome photos={photos} />
+            <UserHome photos={Object.values(photos)} />
         )
     } else {
         homePage = (
