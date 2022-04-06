@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { getUserPhotos } from "../../store/photo";
 import Photo from "../Photo";
+import './UserPhotos.css'
 
 export default function UserPhotos() {
     const dispatch = useDispatch();
@@ -16,10 +17,10 @@ export default function UserPhotos() {
     return (
         <div>
             {photosArr.length > 0 && (
-                <ul>
+                <ul id='photos-container'>
                     {photosArr.map(photo =>
                     (
-                        <li key={photo.id}>
+                        <li id={`image-${photo.id}`} className='photos' key={photo.id}>
                             <Link to={`/photos/${photo.id}`}>
                                 <Photo photo={photo} />
                             </Link>
