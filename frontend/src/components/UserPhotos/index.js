@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { getUserPhotos } from "../../store/photo";
-import Photo from "./Photo";
+import Photo from "../Photo";
 
 export default function UserPhotos() {
     const dispatch = useDispatch();
