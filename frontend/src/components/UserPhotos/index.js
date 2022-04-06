@@ -20,7 +20,7 @@ export default function UserPhotos() {
                 <ul id='photos-container'>
                     {photosArr.map(photo =>
                     (
-                        <li id={`image-${photo.id}`} className='photos' key={photo.id}>
+                        <li key={photo.id}>
                             <Link to={`/photos/${photo.id}`}>
                                 <Photo photo={photo} />
                             </Link>
