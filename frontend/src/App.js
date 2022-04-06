@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import UploadPage from "./components/UploadPage";
 import UserPhotos from "./components/UserPhotos";
-import SinglePhoto from "./components/SinglePhoto";
+import SinglePhotoPage from "./components/SinglePhotoPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ function App() {
             <UserPhotos />
           </Route>
           <Route path='/photos/:id'>
-            <SinglePhoto />
+            <SinglePhotoPage />
           </Route>
         </Switch>
       )}
