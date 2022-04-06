@@ -18,11 +18,31 @@ validatePhoto = [
     handleValidationErrors
 ]
 
+validateEditPhoto = [
+    check('content')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a description for your image.'),
+    handleValidationErrors
+]
 //Get photos
 router.get('/', asyncHandler(async (req, res) => {
     const photos = await Photo.findAll({
         limit: 10,
         //could possibly add other filters like most favorited, most recent etc
+    })
+
+    return res.json({ photos });
+}))
+
+//Get user photos
+router.get('/user', restoreUser, asyncHandler(async (req, res) => {
+    const { id } = req.user
+
+    const photos = await Photo.findAll({
+        limit: 10,
+        where: {
+            userId: id
+        }
     })
 
     return res.json({ photos });
@@ -51,12 +71,11 @@ router.post('/new', restoreUser, requireAuth, validatePhoto, asyncHandler(async 
 }))
 
 //Update photo
-router.put('/:id(\\d+)/edit', requireAuth, validatePhoto, asyncHandler(async (req, res) => {
+router.put('/:id(\\d+)/edit', requireAuth, validateEditPhoto, asyncHandler(async (req, res) => {
     const id = req.params.id;
-    const { imageUrl, content } = req.body
+    const { content } = req.body
     const photo = await Photo.findByPk(id);
 
-    photo.imageUrl = imageUrl;
     photo.content = content;
     await photo.save();
 

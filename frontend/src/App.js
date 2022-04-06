@@ -7,7 +7,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import UploadPage from "./components/UploadPage";
-import You from "./components/You";
+import UserPhotos from "./components/UserPhotos";
+import Photo from "./components/UserPhotos/Photo";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,8 +34,11 @@ function App() {
           <Route path='/upload'>
             <UploadPage />
           </Route>
-          <Route path='/profile'>
-            <You />
+          <Route exact path='/photos'>
+            <UserPhotos />
+          </Route>
+          <Route path='/photos/:id'>
+            <Photo />
           </Route>
         </Switch>
       )}

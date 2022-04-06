@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { uploadPhoto } from "../../store/photo";
 
 export default function UploadPage() {
@@ -7,16 +8,18 @@ export default function UploadPage() {
     const [imageUrl, setImageUrl] = useState('');
     const [content, setContent] = useState(''); //for this proj, synonymous w/ title
     const [errors, setErrors] = useState([]);
+    const history = useHistory()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        return dispatch(uploadPhoto({ imageUrl, content }))
+        const photo = await dispatch(uploadPhoto({ imageUrl, content }))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-
+        console.log('photo', photo)
+        return history.push(`/photos/${photo.photo.id}`)
     }
 
     return (
