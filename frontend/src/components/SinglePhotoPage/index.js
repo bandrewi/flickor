@@ -43,8 +43,8 @@ export default function Photo() {
     return (
         <>
             {photo && (
-                <div id='photo-container'>
-                    <img id='image' src={photo.imageUrl} />
+                <div id='single-photo-container'>
+                    <img id='single-photo' src={photo.imageUrl} />
                     <div>
                         {!editClicked && <div id="content">{photo.content}</div>}
                         {editClicked && (
