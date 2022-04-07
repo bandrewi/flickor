@@ -8,13 +8,20 @@ export default function NonUserHome({ photos }) {
     const dispatch = useDispatch();
     const [photoNum, setPhotoNum] = useState(0);
 
+
+    // const bgImg = photos[photoNum].imageUrl
+    // function changeImage() {
+    //     document.getElementById('nonuserhome-photo-container').style.backgroundImage = `url(${bgImg})`
+    // }
+
     useEffect(() => {
         const photoInterval = setInterval(() => {
             setPhotoNum(prevNum => ++prevNum % photos.length);
         }, 5000);
-
+        // changeImage()
         return () => clearInterval(photoInterval);
     }, []);
+    //with changeimage add photoNum to dependency
 
     const handleClick = () => {
         const credential = 'demo@user.io'
@@ -28,8 +35,8 @@ export default function NonUserHome({ photos }) {
                 photos.length > 0 && (
                     <div id='nonuserhome-photo-container'>
                         <img id='nonuserhome-photo' src={photos[photoNum].imageUrl} />
-                        <div>Find your inspiration.</div>
-                        <div>Join the Flickor community, home to some photos and a couple of users</div>
+                        <h1>Find your inspiration.</h1>
+                        {/* <h2>Join the Flickor community, home to some photos and a couple of users</h2> */}
                         <div>
                             <button onClick={handleClick}>Demo Login</button>
                         </div>
