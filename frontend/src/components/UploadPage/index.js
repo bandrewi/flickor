@@ -24,35 +24,47 @@ export default function UploadPage() {
         return history.push(`/photos/${photo.photo.id}`)
     }
 
+    const imageError = errors.find(error => error.includes('URL'))
+    const descriptionError = errors.find(error => error.includes('description'))
+
     return (
         <div id="upload-form-container">
-            <ul>
+            {/* <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <form id='form' onSubmit={handleSubmit}>
-                <div id='image'>
-                    <label>
-                        Image URL:
+            </ul> */}
+            <form id='upload-form' onSubmit={handleSubmit}>
+                <div id='upload-box'>
+                    <h2 id="image-details">Image Details</h2>
+                    <div id='image'>
+                        {/* <label>
+                        Image URL: */}
                         <input
+                            id='image-input'
+                            placeholder="Image URL"
                             type='text'
                             value={imageUrl}
                             onChange={e => setImageUrl(e.target.value)}
                         // required
                         />
-                    </label>
-                </div>
-                <div id='content'>
-                    <label>
-                        Description:
+                        {imageError && <div id='image-error'>{imageError}</div>}
+                        {/* </label> */}
+                    </div>
+                    <div id='content'>
+                        {/* <label>
+                        Description: */}
                         <input
+                            id='content-input'
+                            placeholder="Description"
                             type='text'
                             value={content}
                             onChange={e => setContent(e.target.value)}
                         // required
                         />
-                    </label>
+                        {descriptionError && <div id='description-error'>{descriptionError}</div>}
+                        {/* </label> */}
+                    </div>
+                    <button id='upload-btn' type='submit'>Upload</button>
                 </div>
-                <button id='btn' type='submit'>Upload</button>
             </form>
         </div>
     )
