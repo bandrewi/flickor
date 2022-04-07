@@ -17,8 +17,9 @@ const favorite = (favorite) => ({
     favorite
 })
 
-const deleteFavorite = () => ({
+const deleteFavorite = (id) => ({
     type: DELETE,
+    id
 })
 
 export const getFavorites = () => async (dispatch) => {
@@ -39,8 +40,11 @@ export const addFavorite = (photoId) => async (dispatch) => {
     return newFavorite;
 }
 
-export const removeFavorite = (photoId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/favorites/${photoId}/delete`)
+export const removeFavorite = (favoriteId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/favorites/${favoriteId}/delete`, {
+        method: 'DELETE'
+    })
+    dispatch(deleteFavorite(favoriteId))
 }
 
 const initializedState = {}
@@ -58,7 +62,7 @@ export default function favoriteReducer(state = initializedState, action) {
             return newState
         case DELETE:
             newState = { ...state }
-            delete newState[action.favorite.id]
+            delete newState[action.id]
             return newState
         default:
             return state
