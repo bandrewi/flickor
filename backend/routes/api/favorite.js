@@ -7,11 +7,18 @@ const { Favorite } = require('../../db/models')
 const router = express.Router();
 
 //Get favorite
-router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-    const id = req.params.id
-    const favorite = await Favorite.findByPk(id)
+router.get('/', requireAuth, restoreUser, asyncHandler(async (req, res) => {
+    const { id: userId } = req.user
+    const favorite = await Favorite.findAll({
+        where: {
+            userId,
+        }
+    })
 
-    return res.json({ favorite })
+    return res.json(favorite)
+    //don't have to send object sin res.json()
+    //for photo route all photo(s) were sent as json so thats why they were nested
+    //and had to key in multiple times
 }))
 
 //Create favorite
@@ -24,7 +31,7 @@ router.post('/new', requireAuth, restoreUser, asyncHandler(async (req, res) => {
         photoId
     })
 
-    return res.json({ favorite })
+    return res.json(favorite)
 }))
 
 //Delete favorite
