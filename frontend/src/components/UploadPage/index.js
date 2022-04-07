@@ -35,34 +35,34 @@ export default function UploadPage() {
             <form id='upload-form' onSubmit={handleSubmit}>
                 <div id='upload-box'>
                     <h2 id="image-details">Image Details</h2>
-                    <div id='image'>
-                        {/* <label>
+                    {/* <div id='image'> */}
+                    {/* <label>
                         Image URL: */}
-                        <input
-                            id='image-input'
-                            placeholder="Image URL"
-                            type='text'
-                            value={imageUrl}
-                            onChange={e => setImageUrl(e.target.value)}
-                        // required
-                        />
-                        {imageError && <div id='image-error'>{imageError}</div>}
-                        {/* </label> */}
-                    </div>
-                    <div id='content'>
-                        {/* <label>
+                    <input
+                        id='image-input'
+                        placeholder="Image URL"
+                        type='text'
+                        value={imageUrl}
+                        onChange={e => setImageUrl(e.target.value)}
+                    // required
+                    />
+                    {imageError && <div id='image-error'>{imageError}</div>}
+                    {/* </label> */}
+                    {/* </div> */}
+                    {/* <div id='content'> */}
+                    {/* <label>
                         Description: */}
-                        <input
-                            id='content-input'
-                            placeholder="Description"
-                            type='text'
-                            value={content}
-                            onChange={e => setContent(e.target.value)}
-                        // required
-                        />
-                        {descriptionError && <div id='description-error'>{descriptionError}</div>}
-                        {/* </label> */}
-                    </div>
+                    <input
+                        id='content-input'
+                        placeholder="Description"
+                        type='text'
+                        value={content}
+                        onChange={e => setContent(e.target.value)}
+                    // required
+                    />
+                    {descriptionError && <div id='description-error'>{descriptionError}</div>}
+                    {/* </label> */}
+                    {/* </div> */}
                     <button id='upload-btn' type='submit'>Upload</button>
                 </div>
             </form>

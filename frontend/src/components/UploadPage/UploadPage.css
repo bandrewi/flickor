@@ -46,7 +46,7 @@
     background: #ecf0f1;
     border: #ccc 1px solid;
     padding: 8px;
-    width: 250px;
+    width: 275px;
     font-size: 1em;
 }
 
@@ -56,7 +56,7 @@
     background: #ecf0f1;
     border: #ccc 1px solid;
     padding: 8px;
-    width: 250px;
+    width: 275px;
     font-size: 1em;
 }
 
@@ -86,12 +86,14 @@
 
 #image-error {
     color: red;
-    margin-left: 5px;
-
+    font-size: 15px;
+    align-self: flex-start;
+    margin-left: 30px;
 }
 
 #description-error {
     color: red;
     margin-left: 6px;
     margin-bottom: 5px;
+    font-size: 15px;
 }
