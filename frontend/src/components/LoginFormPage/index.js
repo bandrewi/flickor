@@ -26,34 +26,46 @@ export default function LoginFormPage() {
             });
     }
 
+    const credentialError = errors.find(error => error.includes('email'))
+    const passwordError = errors.find(error => error.includes('password'))
+
     return (
         <form id='login-form' onSubmit={handleSubmit}>
-            <ul>
+            {/* <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <div>
-                <label>
-                    Username or Email
+            </ul> */}
+            <div id='box'>
+                <h2 id='login-heading'>Login</h2>
+                <div>
+                    {/* <label>
+                        Username or Email */}
                     <input
+                        id='credential'
+                        placeholder='Username or Email'
                         type="text"
                         value={credential}
                         onChange={(e) => setCredential(e.target.value)}
                     // required
                     />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Password
+                    {credentialError && <div id='credential-error'>{credentialError}</div>}
+                    {/* </label> */}
+                </div>
+                <div>
+                    {/* <label>
+                        Password */}
                     <input
+                        id='password'
+                        placeholder='Password'
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     // required
                     />
-                </label>
+                    {passwordError && <div id='password-error'>{passwordError}</div>}
+                    {/* </label> */}
+                </div>
+                <button id='login' type="submit">Log In</button>
             </div>
-            <button type="submit">Log In</button>
-        </form>
+        </form >
     );
 }
