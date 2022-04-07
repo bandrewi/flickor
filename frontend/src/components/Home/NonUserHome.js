@@ -38,7 +38,7 @@ export default function NonUserHome({ photos }) {
                         <h1>Find your inspiration.</h1>
                         {/* <h2>Join the Flickor community, home to some photos and a couple of users</h2> */}
                         <div>
-                            <button onClick={handleClick}>Demo Login</button>
+                            <button id='demo-btn' onClick={handleClick}>Demo Login</button>
                         </div>
                     </div>
 
