@@ -95,6 +95,11 @@ export const getUserPhotos = () => async (dispatch) => {
 
 const initializedState = {};
 
+//for now I have it so that every comp needs to run a dispatch to get the info but
+//that seems inefficient
+//try to refactor code so that one dispatch is called for all photos and have all that info
+//stored in the redux store and from there do w/e data manipulation that is required
+
 export default function photoReducer(state = initializedState, action) {
     let newState;
     switch (action.type) {
