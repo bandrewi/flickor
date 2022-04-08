@@ -34,18 +34,30 @@ function ProfileButton({ user }) {
     return (
         <>
             {/* <div id='profile-btn'> */}
-            <button onClick={openMenu}>
+            {/* <button onClick={openMenu}>
                 <i className="fas fa-user-circle" />
-            </button>
-            {showMenu && (
-                <ul className="profile-dropdown">
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                    <li>
-                        <button onClick={logout}>Log Out</button>
-                    </li>
-                </ul>
+            </button> */}
+            {!showMenu && (
+                <p id='profile-icon-unclicked' onClick={openMenu}>
+                    <img id='profile-icon' src='https://freesvg.org/storage/img/thumb/abstract-user-flat-3.png' />
+                </p>
             )}
+
+            {showMenu && (
+                <>
+                    <p id='profile-icon-clicked' onClick={openMenu}>
+                        <img id='profile-icon' src='https://freesvg.org/storage/img/thumb/abstract-user-flat-3.png' />
+                    </p>
+                    <ul className="profile-dropdown">
+                        <li id='profile-username'>Hi {user.username}</li>
+                        {/* <li>{user.email}</li> */}
+                        <li id='logout-btn'>
+                            <button onClick={logout}>Log Out</button>
+                        </li>
+                    </ul>
+                </>
+            )}
+
             {/* </div> */}
         </>
     );

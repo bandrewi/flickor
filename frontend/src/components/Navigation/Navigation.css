@@ -2,7 +2,7 @@
     /* position: absolute; */
     /* width: 100%; */
     display: flex;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.4);
     height: 64px;
     align-items: center;
 }
@@ -36,15 +36,25 @@ a {
 }
 
 #nonuser-flickor-li {
-    padding-right: 1690px;
+    padding-right: 1650px;
+}
+
+#nonuser-flickor-li>a {
+    color: white;
+    font-size: 20px;
 }
 
 #nav-login-li {
     padding-right: 20px;
 }
 
+#nav-login-li>a {
+    color: white;
+    font-size: 20px;
+}
+
 #nav-signup-li {
-    padding-right: 15px;
+    padding-right: 20px;
 
 }
 
@@ -72,4 +82,67 @@ a {
 #nav-signup-btn:hover {
     background: #e8e8e8;
     color: #3d3d3d;
+}
+
+#profile-btn {
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-icon {
+    height: 33px;
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: #000 solid 1px;
+    background-color: rgba(243, 245, 246, 255);
+    padding: 0px;
+    z-index: 1;
+    height: 70px;
+    width: 150px;
+}
+
+#profile-username {
+    padding-top: 13px;
+    padding-bottom: 2px;
+    border-bottom: #3d3d3d solid 1px;
+}
+
+#profile-icon-clicked {
+    padding-top: 74px;
+}
+
+#logout-btn {
+    padding-top: 5px;
+}
+
+#nav-upload-btn {
+    padding-right: 10px;
+}
+
+#upload-icon {
+    height: 42px;
+}
+
+#your-photos {
+    padding-right: 1300px;
+    padding-left: 20px;
+}
+
+#your-photos>a {
+    color: white;
+    font-size: 20px;
+}
+
+#user-flickor-li>a {
+    color: white;
+    font-size: 20px;
 }

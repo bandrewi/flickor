@@ -18,7 +18,7 @@ function Navigation({ isLoaded }) {
                 <li id='your-photos'>
                     <NavLink to='/photos'>Your Photos</NavLink>
                 </li>
-                <li id='upload-btn'>
+                <li id='nav-upload-btn'>
                     <UploadButton />
                 </li>
                 <li id='profile-btn'>
