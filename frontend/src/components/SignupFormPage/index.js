@@ -29,49 +29,83 @@ function SignupFormPage() {
         return setErrors(['Confirm Password field must be the same as the Password field']);
     };
 
+    const emailError = errors.find(error => error.includes('email'))
+    const usernameError = errors.find(error => error.includes('username'))
+    const passwordError = errors.find(error => error.includes('Password must'))
+    const confirmPasswordError = errors.find(error => error.includes('Confirm'))
+
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Email
-                <input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                // required
-                />
-            </label>
-            <label>
-                Username
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                // required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                // required
-                />
-            </label>
-            <label>
-                Confirm Password
-                <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                // required
-                />
-            </label>
-            <button type="submit">Sign Up</button>
-        </form>
+        <div id='signup-form-container'>
+            <form onSubmit={handleSubmit}>
+                {/* <ul>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul> */}
+                <div id='signup-box'>
+                    <h2>Sign Up</h2>
+                    {/* <label>
+                        Email */}
+                    <input
+                        id='email-input'
+                        placeholder="Email"
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    // required
+                    />
+                    {emailError &&
+                        <div id='email-error' className="signup-error">
+                            {emailError}
+                        </div>}
+                    {/* </label>
+                    <label>
+                        Username */}
+                    <input
+                        id='username-input'
+                        placeholder="Username"
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    // required
+                    />
+                    {usernameError &&
+                        <div id='username-error' className="signup-error">
+                            {usernameError}
+                        </div>}
+                    {/* </label>
+                    <label>
+                        Password */}
+                    <input
+                        id='password-input'
+                        placeholder="Password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    // required
+                    />
+                    {passwordError &&
+                        <div id='signup-password-error' className="signup-error">
+                            {passwordError}
+                        </div>}
+                    {/* </label>
+                    <label>
+                        Confirm Password */}
+                    <input
+                        id='confirm-password-input'
+                        placeholder="Confirm Password"
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    // required
+                    />
+                    {confirmPasswordError &&
+                        <div id='confirm-password-error' className="signup-error">
+                            {confirmPasswordError}
+                        </div>}
+                    {/* </label> */}
+                    <button id='signup-btn' type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
     );
 }
 

@@ -10,3 +10,35 @@
 #nonuserhome-photo {
     height: 500px;
 }
+
+#demo-btn {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 3px;
+    color: #000;
+    background: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    padding: 12px 20px;
+    text-align: center;
+    transition-duration: .15s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+
+}
+
+#demo-btn:hover {
+    background-color: rgb(243, 242, 241);
+    color: rgb(32, 31, 30);
+}
+
+/* #nonuserhome-photo-container {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+} */
