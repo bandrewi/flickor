@@ -12,29 +12,42 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <NavLink to='/photos'>Your Photos</NavLink>
-                <UploadButton />
-                <ProfileButton user={sessionUser} />
+                <li id='user-flickor-li'>
+                    <NavLink exact to="/">Flickor</NavLink>
+                </li>
+                <li id='your-photos'>
+                    <NavLink to='/photos'>Your Photos</NavLink>
+                </li>
+                <li id='upload-btn'>
+                    <UploadButton />
+                </li>
+                <li id='profile-btn'>
+                    <ProfileButton user={sessionUser} />
+                </li>
             </>
         );
     } else {
         sessionLinks = (
             <>
-                <NavLink to="/login">Log In</NavLink>
-                <NavLink to="/signup">
-                    <button>Sign Up</button>
-                </NavLink>
+                <li id='nonuser-flickor-li'>
+                    <NavLink exact to="/">Flickor</NavLink>
+                </li>
+                <li id='nav-login-li'>
+                    <NavLink to="/login">Log In</NavLink>
+                </li>
+                <li id='nav-signup-li'>
+                    <NavLink to="/signup">
+                        <button id='nav-signup-btn'>Sign Up</button>
+                    </NavLink>
+                </li>
             </>
         );
     }
 
     return (
         <div className='nav-bar'>
-            <ul>
-                <li id='nav-li'>
-                    <NavLink exact to="/">Home</NavLink>
-                    {isLoaded && sessionLinks}
-                </li>
+            <ul id='nav-bar-ul'>
+                {isLoaded && sessionLinks}
             </ul>
         </div>
     );
