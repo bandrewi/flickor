@@ -17,8 +17,6 @@ export default function Home() {
     }, [dispatch])
 
     let homePage;
-    //may want to change the way the photos are queried later on 
-    //so that the same photos dont show up on both userhome and nonuserhome
     if (sessionUser) {
         homePage = (
             <UserHome photos={Object.values(photos)} />
