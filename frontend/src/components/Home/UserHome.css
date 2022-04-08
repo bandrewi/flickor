@@ -1,7 +1,7 @@
 #userhome-photo-container {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    justify-content: space-around;
+    /* justify-content: space-around; */
     /* border: black solid 5px; */
     /* grid-template-columns: repeat(3, 600px); */
     /* grid-auto-rows: minmax(200px, 400px); */

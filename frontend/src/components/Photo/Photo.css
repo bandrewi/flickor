@@ -2,12 +2,19 @@
     /* position: relative;
     top: 50px; */
     /* border: black solid 2px; */
+    /* width: auto; */
     height: 300px;
-    width: auto;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
-.grid-figure {
-    /* border: red solid 2px; */
+/* .grid-figure {
+    border: red solid 2px;
+} */
+.photo-content {
+    color: black;
+    margin-top: 3px;
+    margin-left: 3px;
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-size: 18px;
 }

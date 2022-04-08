@@ -66,7 +66,6 @@ export default function Photo() {
                     <img id='single-photo' src={photo.imageUrl} />
                     <div>
                         {!editClicked && <div id="content">{photo.content}</div>}
-                        <button onClick={handleFavorite} style={{ color: favoritedColor }}>Favorite</button>
                         {editClicked && (
                             <form onSubmit={handleSubmit}>
                                 <input
@@ -77,6 +76,7 @@ export default function Photo() {
                                 <button type='submit'>Submit Changes</button>
                             </form>
                         )}
+                        <button onClick={handleFavorite} style={{ color: favoritedColor }}>Favorite</button>
                         {sessionUserId === photo.userId && (
                             <div>
                                 <button id='edit' onClick={handleEdit}>Edit</button>
