@@ -1,10 +1,12 @@
 #single-photo-container {
     position: relative;
-    top: 50px;
+    /* top: 50px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #21262d;
+    height: 650px;
 }
 
 #edit {
@@ -17,4 +19,33 @@
 
 #single-photo {
     height: 500px;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
