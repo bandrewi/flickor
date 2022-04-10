@@ -12,18 +12,22 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <li id='user-flickor-li'>
-                    <NavLink exact to="/">Flickor</NavLink>
-                </li>
-                <li id='your-photos'>
-                    <NavLink to='/photos'>Your Photos</NavLink>
-                </li>
-                <li id='nav-upload-btn'>
-                    <UploadButton />
-                </li>
-                <li id='profile-btn'>
-                    <ProfileButton user={sessionUser} />
-                </li>
+                <ul id='user-left-nav'>
+                    <li id='user-flickor-li'>
+                        <NavLink exact to="/">Flickor</NavLink>
+                    </li>
+                    <li id='your-photos'>
+                        <NavLink to='/photos'>Your Photos</NavLink>
+                    </li>
+                </ul>
+                <ul id='user-right-nav'>
+                    <li id='nav-upload-btn'>
+                        <UploadButton />
+                    </li>
+                    <li id='profile-btn'>
+                        <ProfileButton user={sessionUser} />
+                    </li>
+                </ul>
             </>
         );
     } else {
@@ -32,14 +36,16 @@ function Navigation({ isLoaded }) {
                 <li id='nonuser-flickor-li'>
                     <NavLink exact to="/">Flickor</NavLink>
                 </li>
-                <li id='nav-login-li'>
-                    <NavLink to="/login">Log In</NavLink>
-                </li>
-                <li id='nav-signup-li'>
-                    <NavLink to="/signup">
-                        <button id='nav-signup-btn'>Sign Up</button>
-                    </NavLink>
-                </li>
+                <ul id='nonuser-btns'>
+                    <li id='nav-login-li'>
+                        <NavLink to="/login">Log In</NavLink>
+                    </li>
+                    <li id='nav-signup-li'>
+                        <NavLink to="/signup">
+                            <button id='nav-signup-btn'>Sign Up</button>
+                        </NavLink>
+                    </li>
+                </ul>
             </>
         );
     }
