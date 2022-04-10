@@ -13,8 +13,20 @@
     margin: 2px;
 }
 
+.fav-image {
+    height: 36px;
+    margin-bottom: 7px;
+}
+
+
 #delete {
-    margin: 2px;
+    height: 40px;
+    margin: 5px;
+    margin-right: 10px;
+}
+
+#delete>img {
+    height: 50px;
 }
 
 #single-photo {
@@ -33,6 +45,7 @@
     font-size: 20px;
     border-radius: 0 3px 3px 0;
     user-select: none;
+    z-index: 1;
 }
 
 .next {
@@ -48,4 +61,14 @@
 .prev:hover,
 .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+#btn-container {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    /* change above to center if cant get image previews to show */
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
 }
