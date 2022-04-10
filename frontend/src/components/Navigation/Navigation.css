@@ -41,7 +41,8 @@ a {
 
 #nonuser-flickor-li>a {
     color: white;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 #nonuser-btns {
@@ -159,5 +160,6 @@ a {
 
 #user-flickor-li>a {
     color: white;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bold;
 }

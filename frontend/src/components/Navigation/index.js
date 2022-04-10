@@ -14,7 +14,7 @@ function Navigation({ isLoaded }) {
             <>
                 <ul id='user-left-nav'>
                     <li id='user-flickor-li'>
-                        <NavLink exact to="/">Flickor</NavLink>
+                        <NavLink exact to="/">flickor</NavLink>
                     </li>
                     <li id='your-photos'>
                         <NavLink to='/photos'>Your Photos</NavLink>
@@ -34,7 +34,7 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <li id='nonuser-flickor-li'>
-                    <NavLink exact to="/">Flickor</NavLink>
+                    <NavLink exact to="/">flickor</NavLink>
                 </li>
                 <ul id='nonuser-btns'>
                     <li id='nav-login-li'>
