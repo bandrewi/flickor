@@ -48,13 +48,13 @@ router.get('/user', restoreUser, asyncHandler(async (req, res) => {
     return res.json({ photos });
 }))
 
-//Get photo
-router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-    const id = req.params.id;
-    const photo = await Photo.findByPk(id);
+// //Get photo
+// router.get('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+//     const id = req.params.id;
+//     const photo = await Photo.findByPk(id);
 
-    return res.json({ photo });
-}))
+//     return res.json({ photo });
+// }))
 
 //Upload(create) photo
 router.post('/new', restoreUser, requireAuth, validatePhoto, asyncHandler(async (req, res) => {
