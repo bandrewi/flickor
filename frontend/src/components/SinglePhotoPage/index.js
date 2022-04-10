@@ -1,26 +1,48 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory, useParams } from "react-router-dom"
+import { Link, useHistory, useParams } from "react-router-dom"
 import { addFavorite, getFavorites, removeFavorite } from "../../store/favorite";
-import { deletePhoto, editPhoto, getPhoto } from "../../store/photo";
+import { deletePhoto, editPhoto, getPhoto, getUserPhotos } from "../../store/photo";
 
 import './SinglePhoto.css'
 
-export default function Photo() {
+export default function SinglePhoto() {
     const dispatch = useDispatch();
-    const photos = useSelector(state => state.photos)
+    const photos = useSelector(state => Object.values(state.photos))
     const sessionUserId = useSelector(state => state.session.user.id)
     const favorites = useSelector(state => Object.values(state.favorites))
     const [editClicked, setEditClicked] = useState(false)
     const [content, setContent] = useState('')
     const { id } = useParams()
     const history = useHistory()
-    const photo = photos[id]
+    const photo = photos.find(photo => photo.id === +id)
     const favorite = favorites.find(favorite => favorite.photoId === +id)
+    const photoIdx = photos.indexOf(photo)
 
     //using another useEffect is redundant when refactoring try passing photos in as a prop
+    // useEffect(() => {
+    //     dispatch(getPhoto(id))
+    // }, [dispatch])
+
+
+    let nextPhotoId
+    let prevPhotoId
+    if (photos.length > 0) {
+        if (photoIdx === photos.length - 1) {
+            nextPhotoId = photos.at(0).id
+        } else {
+            nextPhotoId = photos.at(photoIdx + 1).id
+        }
+
+        if (photoIdx === 0) {
+            prevPhotoId = photos.at(photos.length - 1).id
+        } else {
+            prevPhotoId = photos.at(photoIdx - 1).id
+        }
+    }
+
     useEffect(() => {
-        dispatch(getPhoto(id))
+        dispatch(getUserPhotos())
     }, [dispatch])
 
     useEffect(() => {
@@ -61,10 +83,12 @@ export default function Photo() {
 
     return (
         <>
-            {photo && (
+            {photos.length > 0 && (
                 <div id='single-photo-container'>
                     <img id='single-photo' src={photo.imageUrl} />
-                    <div>
+                    <Link class="prev" to={`/photos/${prevPhotoId}`}>❮</Link>
+                    <Link class="next" to={`/photos/${nextPhotoId}`}>❯</Link>
+                    {/* <div>
                         {!editClicked && <div id="content">{photo.content}</div>}
                         {editClicked && (
                             <form onSubmit={handleSubmit}>
@@ -83,7 +107,7 @@ export default function Photo() {
                                 <button id='delete' onClick={handleDelete}>Delete</button>
                             </div>
                         )}
-                    </div>
+                    </div> */}
                 </div>
             )}
         </>
