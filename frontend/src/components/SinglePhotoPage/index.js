@@ -18,25 +18,27 @@ export default function SinglePhoto() {
     const photo = photos.find(photo => photo.id === +id)
     const favorite = favorites.find(favorite => favorite.photoId === +id)
     const photoIdx = photos.indexOf(photo)
-    console.log(photoIdx)
 
     //using another useEffect is redundant when refactoring try passing photos in as a prop
     // useEffect(() => {
     //     dispatch(getPhoto(id))
     // }, [dispatch])
 
-    let nextPhotoId
-    if (photoIdx === photos.length - 1) {
-        nextPhotoId = photos.at(0).id
-    } else {
-        nextPhotoId = photos.at(photoIdx + 1).id
-    }
 
+    let nextPhotoId
     let prevPhotoId
-    if (photoIdx === 0) {
-        prevPhotoId = photos.at(photos.length - 1).id
-    } else {
-        prevPhotoId = photos.at(photoIdx - 1).id
+    if (photos.length > 0) {
+        if (photoIdx === photos.length - 1) {
+            nextPhotoId = photos.at(0).id
+        } else {
+            nextPhotoId = photos.at(photoIdx + 1).id
+        }
+
+        if (photoIdx === 0) {
+            prevPhotoId = photos.at(photos.length - 1).id
+        } else {
+            prevPhotoId = photos.at(photoIdx - 1).id
+        }
     }
 
     useEffect(() => {
@@ -81,7 +83,7 @@ export default function SinglePhoto() {
 
     return (
         <>
-            {photo && (
+            {photos.length > 0 && (
                 <div id='single-photo-container'>
                     <img id='single-photo' src={photo.imageUrl} />
                     <Link class="prev" to={`/photos/${prevPhotoId}`}>❮</Link>
