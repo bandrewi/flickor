@@ -4,8 +4,8 @@ const ADD = 'photo/ADD'
 const DELETE = 'photo/DELETE'
 const EDIT = 'photo/EDIT'
 const LOAD = 'photos/LOAD'
-const LOAD_ONE = '/photos/LOAD_ONE'
-const LOAD_USER_PHOTOS = '/photos/LOAD_USER_PHOTOS'
+// const LOAD_ONE = 'photos/LOAD_ONE'
+const LOAD_USER_PHOTOS = 'photos/LOAD_USER_PHOTOS'
 
 
 const addPhoto = (photo) => ({
