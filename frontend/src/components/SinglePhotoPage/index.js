@@ -45,7 +45,7 @@ export default function SinglePhoto() {
     }
 
     useEffect(() => {
-        dispatch(getUserPhotos())
+        if (photo) dispatch(getUserPhotos(photo.userId))
     }, [dispatch])
 
     useEffect(() => {
@@ -148,8 +148,13 @@ export default function SinglePhoto() {
                     <div id="content-container">
                         {!editClicked && (
                             <>
-                                <div id="content" onClick={handleEdit}>{photo.content}</div>
-                                <img id='edit' src="https://img.icons8.com/material-outlined/344/edit--v1.png" />
+                                <div
+                                    id={sessionUserId === photo.userId ? "content" : 'nonuser-content'}
+                                    onClick={sessionUserId === photo.userId ? handleEdit : null}>
+                                    {photo.content}
+                                </div>
+                                {sessionUserId === photo.userId &&
+                                    <img id='edit' src="https://img.icons8.com/material-outlined/344/edit--v1.png" />}
                             </>
                         )}
                         {editClicked && (
