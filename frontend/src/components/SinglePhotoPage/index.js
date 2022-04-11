@@ -88,7 +88,7 @@ export default function SinglePhoto() {
             await dispatch(addFavorite(photo.id))
         }
     }
-    console.log('RENDER')
+    // console.log('RENDER')
     return (
         <>
             {photos.length > 0 && (
