@@ -26,6 +26,8 @@ export default function SinglePhoto() {
     // }, [dispatch])
 
 
+    //for the below code, I for some forgot how to index into an array so I used the at method
+    //leaving this as a mark of shame
     let nextPhotoId
     let prevPhotoId
     if (photos.length > 0) {
@@ -63,8 +65,24 @@ export default function SinglePhoto() {
         setEditClicked(!editClicked)
     }
 
-    const handlePevNext = () => {
+    const handlePrev = () => {
         setEditClicked(false)
+        setErrors([])
+        if (photoIdx === 0) {
+            setContent(photos[photos.length - 1].content)
+        } else {
+            setContent(photos[photoIdx - 1].content)
+        }
+    }
+
+    const handleNext = () => {
+        setEditClicked(false)
+        setErrors([])
+        if (photoIdx === photos.length - 1) {
+            setContent(photos[0].content)
+        } else {
+            setContent(photos[photoIdx + 1].content)
+        }
     }
 
     const handleSubmit = async (e) => {
@@ -89,14 +107,16 @@ export default function SinglePhoto() {
         }
     }
     // console.log('RENDER')
+    // console.log('photo', photo)
+    // console.log('content', content)
     return (
         <>
-            {photos.length > 0 && (
+            {photos.length > 0 && content && (
                 <>
                     <div id='single-photo-container'>
                         <img id='single-photo' src={photo.imageUrl} />
-                        <Link className="prev" to={`/photos/${prevPhotoId}`} onClick={handlePevNext}>❮</Link>
-                        <Link className="next" to={`/photos/${nextPhotoId}`} onClick={handlePevNext}>❯</Link>
+                        <Link className="prev" to={`/photos/${prevPhotoId}`} onClick={handlePrev}>❮</Link>
+                        <Link className="next" to={`/photos/${nextPhotoId}`} onClick={handleNext}>❯</Link>
                         <div id='btn-container'>
                             {/* {!editClicked && <div id="content">{photo.content}</div>}
                         {editClicked && (
