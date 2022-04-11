@@ -35,6 +35,10 @@
     color: rgb(32, 31, 30);
 }
 
+#heading {
+    color: white;
+}
+
 /* #bg-img {
     position: absolute;
     height: 100%;

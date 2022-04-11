@@ -38,7 +38,7 @@ export default function NonUserHome({ photos }) {
                         {/* <div id='bg-img' style={{ backgroundImage: `url(${bgImg})` }} /> */}
                         <div id='nonuserhome-photo-container'>
                             <img id='nonuserhome-photo' src={photos[photoNum].imageUrl} />
-                            <h1>Find your inspiration.</h1>
+                            <h1 id='heading'>Find your inspiration.</h1>
                             {/* <h2>Join the Flickor community, home to some photos and a couple of users</h2> */}
                             <div>
                                 <button id='demo-btn' onClick={handleClick}>Demo Login</button>
