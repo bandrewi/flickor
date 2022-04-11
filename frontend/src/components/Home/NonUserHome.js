@@ -10,6 +10,7 @@ export default function NonUserHome({ photos }) {
 
 
     // const bgImg = photos[photoNum].imageUrl
+    // document.body.style.backgroundImage = `url(${bgImg})`;
     // function changeImage() {
     //     document.getElementById('nonuserhome-photo-container').style.backgroundImage = `url(${bgImg})`
     // }
@@ -33,15 +34,17 @@ export default function NonUserHome({ photos }) {
         <>
             {
                 photos.length > 0 && (
-                    <div id='nonuserhome-photo-container'>
-                        <img id='nonuserhome-photo' src={photos[photoNum].imageUrl} />
-                        <h1>Find your inspiration.</h1>
-                        {/* <h2>Join the Flickor community, home to some photos and a couple of users</h2> */}
-                        <div>
-                            <button id='demo-btn' onClick={handleClick}>Demo Login</button>
+                    <>
+                        {/* <div id='bg-img' style={{ backgroundImage: `url(${bgImg})` }} /> */}
+                        <div id='nonuserhome-photo-container'>
+                            <img id='nonuserhome-photo' src={photos[photoNum].imageUrl} />
+                            <h1>Find your inspiration.</h1>
+                            {/* <h2>Join the Flickor community, home to some photos and a couple of users</h2> */}
+                            <div>
+                                <button id='demo-btn' onClick={handleClick}>Demo Login</button>
+                            </div>
                         </div>
-                    </div>
-
+                    </>
                 )
             }
         </>
