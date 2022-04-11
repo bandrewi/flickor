@@ -111,7 +111,7 @@ export default function SinglePhoto() {
     // console.log('content', content)
     return (
         <>
-            {photos.length > 0 && content && (
+            {photos.length > 0 && (
                 <>
                     <div id='single-photo-container'>
                         <img id='single-photo' src={photo.imageUrl} />
