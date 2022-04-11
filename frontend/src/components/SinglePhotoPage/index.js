@@ -13,7 +13,7 @@ export default function SinglePhoto() {
     const favorites = useSelector(state => Object.values(state.favorites))
     const [editClicked, setEditClicked] = useState(false)
     const [content, setContent] = useState('')
-    const [editError, setEditError] = useState([])
+    const [errors, setErrors] = useState([])
     const { id } = useParams()
     const history = useHistory()
     const photo = photos.find(photo => photo.id === +id)
@@ -50,7 +50,6 @@ export default function SinglePhoto() {
         dispatch(getFavorites())
     }, [dispatch])
 
-    if (photo) console.log('before effect', photo.content)
     useEffect(() => {
         if (photo) setContent(photo.content)
     }, [])
@@ -66,8 +65,15 @@ export default function SinglePhoto() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await dispatch(editPhoto({ id, content }))
-        setEditClicked(false)
+
+        try {
+            await dispatch(editPhoto({ id, content }))
+            setErrors([])
+            setEditClicked(!editClicked)
+        } catch (err) {
+            const data = await err.json()
+            if (data && data.errors) setErrors(data.errors);
+        }
     }
 
 
@@ -129,7 +135,7 @@ export default function SinglePhoto() {
                                     value={content}
                                     onChange={e => setContent(e.target.value)}
                                 />
-                                {/* {editError &&} */}
+                                {errors && <div id='edit-error'>{errors[0]}</div>}
                                 <div id="edit-btn-container">
                                     <button id='edit-btn' type='submit'>Submit Changes</button>
                                 </div>
