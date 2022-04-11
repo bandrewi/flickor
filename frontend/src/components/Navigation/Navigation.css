@@ -109,7 +109,8 @@ a {
 }
 
 #profile-icon {
-    height: 33px;
+    height: 39px;
+    padding-top: 6px;
     cursor: pointer;
 }
 
@@ -133,7 +134,7 @@ a {
 }
 
 #profile-icon-clicked {
-    padding-top: 74px;
+    padding-top: 76px;
 }
 
 #logout-btn {
@@ -141,16 +142,18 @@ a {
 }
 
 #nav-upload-btn {
+    padding-top: 3px;
     padding-right: 20px;
 }
 
 #upload-icon {
     height: 42px;
+    padding-top: 6px;
 }
 
 #your-photos {
     padding-right: 1300px;
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 #your-photos>a {
