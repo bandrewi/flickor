@@ -10,7 +10,7 @@ import './Home.css';
 export default function Home() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const photos = useSelector(state => state.photos);
+    const photos = useSelector(state => Object.values(state.photos));
 
     useEffect(() => {
         dispatch(photoActions.getPhotos())
@@ -19,17 +19,20 @@ export default function Home() {
     let homePage;
     if (sessionUser) {
         homePage = (
-            <UserHome photos={Object.values(photos)} />
+            <UserHome photos={(photos)} />
         )
     } else {
         homePage = (
-            <NonUserHome photos={Object.values(photos)} />
+            <NonUserHome photos={(photos)} />
         )
     }
-
+    // console.log('photos', photos)
+    //already made the query to sort by id descending but it looks like useSelector
+    //is sorting the array elements by id 
+    //BOTH LIMIT AND ORDER QUERIES WORK
     return (
         <>
-            {Object.values(photos).length > 0 && homePage}
+            {photos.length > 0 && homePage}
         </>
     )
 }
