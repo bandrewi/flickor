@@ -86,8 +86,8 @@ export const getPhotos = () => async (dispatch) => {
     dispatch(loadPhotos(photos))
 }
 
-export const getUserPhotos = () => async (dispatch) => {
-    const res = await csrfFetch('/api/photos/user')
+export const getUserPhotos = (id) => async (dispatch) => {
+    const res = await csrfFetch(`/api/photos/users/${id}`)
     const photos = await res.json()
     dispatch(loadUserPhotos(photos))
 }
