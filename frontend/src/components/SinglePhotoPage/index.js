@@ -63,6 +63,10 @@ export default function SinglePhoto() {
         setEditClicked(!editClicked)
     }
 
+    const handlePevNext = () => {
+        setEditClicked(false)
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -84,15 +88,15 @@ export default function SinglePhoto() {
             await dispatch(addFavorite(photo.id))
         }
     }
-
+    console.log('RENDER')
     return (
         <>
             {photos.length > 0 && (
                 <>
                     <div id='single-photo-container'>
                         <img id='single-photo' src={photo.imageUrl} />
-                        <Link className="prev" to={`/photos/${prevPhotoId}`}>❮</Link>
-                        <Link className="next" to={`/photos/${nextPhotoId}`}>❯</Link>
+                        <Link className="prev" to={`/photos/${prevPhotoId}`} onClick={handlePevNext}>❮</Link>
+                        <Link className="next" to={`/photos/${nextPhotoId}`} onClick={handlePevNext}>❯</Link>
                         <div id='btn-container'>
                             {/* {!editClicked && <div id="content">{photo.content}</div>}
                         {editClicked && (
@@ -143,7 +147,8 @@ export default function SinglePhoto() {
                         )}
                     </div>
                 </>
-            )}
+            )
+            }
         </>
     )
 }
