@@ -108,7 +108,7 @@ export default function photoReducer(state = initializedState, action) {
         //     newState[action.photo.id] = action.photo
         //     return newState
         case LOAD:
-            newState = { ...state }
+            newState = {}
             action.photos.forEach(photo => newState[photo.id] = photo)
             return newState
         case LOAD_USER_PHOTOS:
