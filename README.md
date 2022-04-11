@@ -1,5 +1,6 @@
 # Flickor
 Flickor is a clone of flickr and is a website that allows users to share all sorts of photos.
+Live Link: [Flickor](https://dashboard.heroku.com/apps/flickor)
 
 # Index
 | [Feature List](https://github.com/bandrewi/solo-project/wiki/Features) | [Database Schema](https://github.com/bandrewi/solo-project/wiki/Database-Schema) | [API Documentation](https://github.com/bandrewi/solo-project/wiki/API-Documentation)
