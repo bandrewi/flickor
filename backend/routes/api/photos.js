@@ -27,6 +27,7 @@ validateEditPhoto = [
 //Get photos
 router.get('/', asyncHandler(async (req, res) => {
     const photos = await Photo.findAll({
+        order: [["id", 'DESC']],
         limit: 10,
         //could possibly add other filters like most favorited, most recent etc
     })
@@ -40,6 +41,7 @@ router.get('/users/:id(\\d+)', restoreUser, asyncHandler(async (req, res) => {
     const id = req.params.id
     console.log(id)
     const photos = await Photo.findAll({
+        order: [["id", "DESC"]],
         limit: 10,
         where: {
             userId: id
