@@ -34,10 +34,11 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json({ photos });
 }))
 
-//Get user photos
-router.get('/user', restoreUser, asyncHandler(async (req, res) => {
-    const { id } = req.user
-
+//Get specific user photos
+router.get('/users/:id(\\d+)', restoreUser, asyncHandler(async (req, res) => {
+    // const { id } = req.user
+    const id = req.params.id
+    console.log(id)
     const photos = await Photo.findAll({
         limit: 10,
         where: {
