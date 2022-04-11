@@ -8,18 +8,19 @@ import './UserPhotos.css'
 
 export default function UserPhotos() {
     const dispatch = useDispatch();
+    const sessionUserId = useSelector(state => state.session.user.id)
     const photosArr = useSelector(state => Object.values(state.photos))
 
     //not efficient making multiple fetch calls when only have to make one and pass down as props
     //when refactoring solve this issue
 
     useEffect(() => {
-        dispatch(getUserPhotos())
+        if (sessionUserId) dispatch(getUserPhotos(sessionUserId))
     }, [dispatch])
 
     return (
         <div>
-            {photosArr.length > 0 && (
+            {photosArr.length > 0 && sessionUserId && (
                 <ul id='userphotos-container'>
                     {photosArr.map(photo =>
                     (
