@@ -1,10 +1,20 @@
-#nonuserhome-photo-container {
-    position: relative;
-    top: 50px;
+#nonuserhome-photo-container-inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 924px;
+
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s linear;
 }
 
 #nonuserhome-photo {
