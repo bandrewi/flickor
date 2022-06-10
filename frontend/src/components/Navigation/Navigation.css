@@ -58,7 +58,7 @@ a {
 
 #nav-login-li>a {
     color: white;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 #nav-signup-li {
@@ -81,25 +81,23 @@ a {
     outline: 0;
     text-align: center;
     cursor: pointer;
-    height: 34px;
-    padding: 0 13px;
+    height: 32px;
+    width: 96.58px;
+    padding: 0 20px;
     vertical-align: top;
     border-radius: 3px;
     border: 1px solid transparent;
-    transition: all .3s ease;
     background: #fff;
     border-color: #e8e8e8;
     color: #000;
     font-weight: 600;
-    text-transform: uppercase;
     line-height: 16px;
-    font-size: 11px;
-
+    font-size: 13px;
 }
 
 #nav-signup-btn:hover {
-    background: #e8e8e8;
-    color: #3d3d3d;
+    color: rgba(0, 0, 0, .5);
+    transition: color .15s ease-in-out
 }
 
 #profile-btn {

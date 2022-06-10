@@ -41,8 +41,8 @@
 }
 
 #demo-btn:hover {
-    background-color: rgb(243, 242, 241);
-    color: rgb(32, 31, 30);
+    color: rgba(0, 0, 0, .5);
+    transition: color .15s ease-in-out
 }
 
 #heading {
