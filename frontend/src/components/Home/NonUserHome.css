@@ -47,6 +47,14 @@
 
 #heading {
     color: white;
+    font-size: 56px;
+    margin-bottom: 0px;
+}
+
+#heading-2 {
+    color: white;
+    font-size: 26px;
+    margin-bottom: 50px;
 }
 
 /* #bg-img {
