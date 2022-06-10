@@ -23,7 +23,7 @@
     display: grid;
     grid-template-columns: repeat(2, 508px);
     /* grid-auto-rows: auto; */
-    column-gap: 15px;
+    column-gap: 20px;
     row-gap: 15px;
 }
 

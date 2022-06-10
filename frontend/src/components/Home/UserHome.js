@@ -8,7 +8,7 @@ export default function UserHome({ photos }) {
     return (
         <div id='userhome-photo-container-outer'>
             <div id='ppl-to-follow'>
-                <div>People to follow</div>
+                {/* <div>People to follow</div> */}
             </div>
             <ul id='userhome-photo-container'>
                 {photos.map(photo => (
@@ -16,7 +16,7 @@ export default function UserHome({ photos }) {
                         <Link to={`/photos/${photo.id}`} className='photo'>
                             <Photo photo={photo} />
                         </Link>
-                        {/* <div className='photo-content'>{photo.content} </div> */}
+                        <div className='photo-content'>{photo.content} </div>
                     </li>
                 ))}
             </ul>
