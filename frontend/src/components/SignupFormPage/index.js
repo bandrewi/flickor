@@ -41,6 +41,7 @@ function SignupFormPage() {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul> */}
                 <div id='signup-box'>
+                    <img id='login-logo' className='flickor-logo' src='https://i.imgur.com/SpPAHbL.png' alt='' />
                     <h2 id='signup-heading' className="login-signup-heading">Sign up for Flickor</h2>
                     {/* <label>
                         Email */}
