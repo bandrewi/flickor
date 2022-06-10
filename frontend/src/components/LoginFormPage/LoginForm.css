@@ -20,7 +20,7 @@
     background-position: bottom
 }
 
-#login-heading {
+.login-signup-heading {
     margin-top: 60px;
     font-size: 20px;
     font-weight: normal;
@@ -40,7 +40,7 @@
     /* border: black 4px solid; */
 }
 
-#login {
+.login {
     width: 293px;
     padding: 9px;
     margin-top: 15px;
@@ -107,7 +107,7 @@
     /* margin-right: 40px; */
 }
 
-#login:hover {
+.login:hover {
     filter: brightness(105%);
     cursor: pointer;
 }

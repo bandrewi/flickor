@@ -37,7 +37,7 @@ export default function LoginFormPage() {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul> */}
                 <div id='box'>
-                    <h2 id='login-heading'>Log in to Flickor</h2>
+                    <h2 className='login-signup-heading'>Log in to Flickor</h2>
                     {/* <div> */}
                     {/* <label>
                         Username or Email */}
@@ -70,7 +70,7 @@ export default function LoginFormPage() {
                         <div id='invalid-credential-error'>{invalidCredentialError}</div>}
                     {/* </label> */}
                     {/* </div> */}
-                    <button id='login' type="submit">Log In</button>
+                    <button className='login' type="submit">Log In</button>
                     <div id='login-signup-redirect-container'>
                         <span>Not a Flickor member? </span>
                         <Link id='login-signup-redirect' to='/signup'>
