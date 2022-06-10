@@ -83,22 +83,22 @@ a {
 }
 
 #nav-signup-btn {
-    display: inline-block;
-    outline: 0;
-    text-align: center;
+    /* display: inline-block; */
+    /* outline: 0; */
+    /* text-align: center; */
     cursor: pointer;
     height: 32px;
     width: 96.58px;
-    padding: 0 20px;
-    vertical-align: top;
+    padding: 0 15px;
+    /* vertical-align: top; */
     border-radius: 3px;
     border: 1px solid transparent;
     background: #fff;
     border-color: #e8e8e8;
     color: #000;
     font-weight: 600;
-    line-height: 16px;
-    font-size: 13px;
+    /* line-height: 16px; */
+    font-size: 16px;
 }
 
 #nav-signup-btn:hover {
