@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { login } from "../../store/session";
 
 import './LoginForm.css';
 
@@ -15,6 +16,12 @@ export default function LoginFormPage() {
     if (sessionUser) return (
         <Redirect to="/" />
     );
+
+    const handleClick = () => {
+        const credential = 'demo@user.io'
+        const password = 'password'
+        dispatch(login({ credential, password }))
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -37,12 +44,14 @@ export default function LoginFormPage() {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul> */}
                 <div id='box'>
-                    <h2 id='login-heading'>Login</h2>
+                    <img id='login-logo' className='flickor-logo' src='https://i.imgur.com/SpPAHbL.png' alt='' />
+                    <h2 className='login-signup-heading'>Log in to Flickor</h2>
                     {/* <div> */}
                     {/* <label>
                         Username or Email */}
                     <input
                         id='credential'
+                        className='login-input'
                         placeholder='Username or Email'
                         type="text"
                         value={credential}
@@ -57,6 +66,7 @@ export default function LoginFormPage() {
                         Password */}
                     <input
                         id='password'
+                        className='login-input'
                         placeholder='Password'
                         type="password"
                         value={password}
@@ -68,7 +78,16 @@ export default function LoginFormPage() {
                         <div id='invalid-credential-error'>{invalidCredentialError}</div>}
                     {/* </label> */}
                     {/* </div> */}
-                    <button id='login' type="submit">Log In</button>
+                    <button className='login' type="submit">Log In</button>
+                    <div id='login-signup-redirect-container'>
+                        <span>Not a Flickor member? </span>
+                        <Link id='login-signup-redirect' to='/signup'>
+                            Sign up here.
+                        </Link>
+                        <div id='demo-container'>Don't want to create an account?
+                            <span id='demo' onClick={handleClick}> Demo User</span>
+                        </div>
+                    </div>
                 </div>
             </form >
         </div>

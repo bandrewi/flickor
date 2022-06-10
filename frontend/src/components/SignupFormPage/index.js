@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import * as sessionActions from "../../store/session";
 import './SignupForm.css'
@@ -41,11 +41,13 @@ function SignupFormPage() {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul> */}
                 <div id='signup-box'>
-                    <h2>Sign Up</h2>
+                    <img id='login-logo' className='flickor-logo' src='https://i.imgur.com/SpPAHbL.png' alt='' />
+                    <h2 id='signup-heading' className="login-signup-heading">Sign up for Flickor</h2>
                     {/* <label>
                         Email */}
                     <input
                         id='email-input'
+                        className="login-input"
                         placeholder="Email"
                         type="text"
                         value={email}
@@ -102,7 +104,13 @@ function SignupFormPage() {
                             {confirmPasswordError}
                         </div>}
                     {/* </label> */}
-                    <button id='signup-btn' type="submit">Sign Up</button>
+                    <button id='signup-btn' className='login' type="submit">Sign Up</button>
+                    <div id='login-signup-redirect-container'>
+                        <span>Already a Flickor member? </span>
+                        <Link id='login-signup-redirect' to='/login'>
+                            Log in here.
+                        </Link>
+                    </div>
                 </div>
             </form>
         </div>

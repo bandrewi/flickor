@@ -16,7 +16,7 @@ router.get('/', requireAuth, restoreUser, asyncHandler(async (req, res) => {
     })
 
     return res.json(favorite)
-    //don't have to send object sin res.json()
+    //don't have to send objects in res.json()
     //for photo route all photo(s) were sent as json so thats why they were nested
     //and had to key in multiple times
 }))

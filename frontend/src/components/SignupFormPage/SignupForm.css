@@ -1,9 +1,12 @@
 #signup-form-container {
-    margin: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    background-image: url('https://live.staticflickr.com/7860/47508364201_5030d46631_b.jpg');
+    background-size: cover;
+    background-position: bottom
 }
 
 #signup-box {
@@ -13,41 +16,25 @@
     align-items: center;
     background: white;
     width: 350px;
-    height: 200px;
+    height: 300px;
     border-radius: 6px;
     margin: 0 auto 0 auto;
     padding: 60px 0px 100px 0px;
-    border: black 4px solid;
 }
 
 #signup-box>input {
-    /* margin-right: 10px; */
-    margin-bottom: 3px;
-    border-radius: 4px;
-    background: #ecf0f1;
+    margin: 0px;
     border: #ccc 1px solid;
-    padding: 8px;
-    width: 270px;
+    padding: 15px 8px;
+    width: 275px;
+    margin-top: 10px;
     font-size: 1em;
+    border-radius: 4px;
+    outline-color: #4695f5;
 }
 
-#signup-btn {
-    margin: 5px;
-    display: inline-block;
-    outline: 0;
-    text-align: center;
-    cursor: pointer;
-    padding: 5px 16px;
-    border-radius: 2px;
-    min-width: 70px;
-    height: 30px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(50, 49, 48);
-    font-size: 14px;
-    font-weight: 400;
-    box-sizing: border-box;
-    border: 1px solid rgb(138, 136, 134);
-
+#signup-heading {
+    margin-top: 20px;
 }
 
 #upload-btn:hover {
@@ -58,7 +45,6 @@
 .signup-error {
     color: red;
     font-size: 13px;
-    margin: 5px;
 }
 
 #email-error {

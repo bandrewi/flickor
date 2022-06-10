@@ -19,6 +19,9 @@ body {
     height: 100vh;
     box-sizing: border-box;
     margin: 0px;
+}
+
+* {
     font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
 }
 
