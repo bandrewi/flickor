@@ -66,21 +66,21 @@ export default function NonUserHome({ photos }) {
                             <div id="footer-inner" className="flex-row">
                                 <div id="technologies" className="flex-row">
                                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="" />
-                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" />
-                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" />
-                                    <img src="https://i.imgur.com/MoFw3WD.png" />
-                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" />
-                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" />
-                                    <img src="https://i.imgur.com/E8GbqHf.png" />
-                                    <img id='last-tech' src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="" />
+                                    <img src="https://i.imgur.com/MoFw3WD.png" alt="" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="" />
+                                    <img src="https://i.imgur.com/E8GbqHf.png" alt="" />
+                                    <img id='last-tech' src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="" />
                                     {/* <img src="" /> */}
                                 </div>
                                 <div id='about' className="flex-row">
                                     <a href="https://github.com/bandrewi" target='_blank'>
-                                        <img className="about-image" src="https://i.imgur.com/lkKyqhT.png" />
+                                        <img className="about-image" src="https://i.imgur.com/lkKyqhT.png" alt="" />
                                     </a>
                                     <a href="https://www.linkedin.com/in/andrew-bui-26b718237/" target='_blank'>
-                                        <img className="about-image" src="https://i.imgur.com/hLlhx14.png" />
+                                        <img className="about-image" src="https://i.imgur.com/hLlhx14.png" alt="" />
                                     </a>
                                 </div>
                             </div>
