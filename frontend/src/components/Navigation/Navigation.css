@@ -9,6 +9,11 @@
     align-items: center;
 }
 
+.flickor-logo {
+    height: 14px;
+    margin: 0px 5px 5px 0px;
+}
+
 ul {
     list-style-type: none;
 }

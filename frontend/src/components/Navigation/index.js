@@ -14,6 +14,7 @@ function Navigation({ isLoaded }) {
             <>
                 <ul id='user-left-nav'>
                     <li id='user-flickor-li'>
+                        <img className='flickor-logo' src='https://i.imgur.com/SpPAHbL.png' alt='' />
                         <NavLink exact to="/">flickor</NavLink>
                     </li>
                     <li id='your-photos'>
@@ -34,6 +35,7 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <li id='nonuser-flickor-li'>
+                    <img className='flickor-logo' src='https://i.imgur.com/SpPAHbL.png' alt='' />
                     <NavLink exact to="/">flickor</NavLink>
                 </li>
                 <ul id='nonuser-btns'>
