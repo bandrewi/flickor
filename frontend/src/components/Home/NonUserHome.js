@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { login } from "../../store/session";
+import { Link } from 'react-router-dom';
 
 import './NonUserHome.css'
 
@@ -32,11 +33,11 @@ export default function NonUserHome({ photos }) {
     }, []);
     //with changeimage add photoNum to dependency
 
-    const handleClick = () => {
-        const credential = 'demo@user.io'
-        const password = 'password'
-        dispatch(login({ credential, password }))
-    }
+    // const handleClick = () => {
+    //     const credential = 'demo@user.io'
+    //     const password = 'password'
+    //     dispatch(login({ credential, password }))
+    // }
 
     return (
         <>
@@ -54,7 +55,9 @@ export default function NonUserHome({ photos }) {
                                 <h1 id='heading'>Find your inspiration.</h1>
                                 <h2 id="heading-2">Join the Flickor community, home to some photos and a couple users.</h2>
                                 <div>
-                                    <button id='demo-btn' onClick={handleClick}>Start for free</button>
+                                    <Link to='/signup'>
+                                        <button id='demo-btn'>Start for free</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
