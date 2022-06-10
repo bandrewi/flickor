@@ -44,6 +44,7 @@ export default function LoginFormPage() {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul> */}
                 <div id='box'>
+                    <img id='login-logo' className='flickor-logo' src='https://i.imgur.com/SpPAHbL.png' alt='' />
                     <h2 className='login-signup-heading'>Log in to Flickor</h2>
                     {/* <div> */}
                     {/* <label>
