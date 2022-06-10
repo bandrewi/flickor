@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
+import { login } from "../../store/session";
 
 import './LoginForm.css';
 
@@ -15,6 +16,12 @@ export default function LoginFormPage() {
     if (sessionUser) return (
         <Redirect to="/" />
     );
+
+    const handleClick = () => {
+        const credential = 'demo@user.io'
+        const password = 'password'
+        dispatch(login({ credential, password }))
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -76,6 +83,9 @@ export default function LoginFormPage() {
                         <Link id='login-signup-redirect' to='/signup'>
                             Sign up here.
                         </Link>
+                        <div id='demo-container'>Don't want to create an account?
+                            <span id='demo' onClick={handleClick}> Demo User</span>
+                        </div>
                     </div>
                 </div>
             </form >

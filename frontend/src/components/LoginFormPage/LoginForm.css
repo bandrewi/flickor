@@ -123,3 +123,12 @@
 #login-signup-redirect {
     color: #006dac;
 }
+
+#demo-container {
+    margin-top: 5px;
+}
+
+#demo {
+    color: #006dac;
+    cursor: pointer;
+}
