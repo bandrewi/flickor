@@ -61,12 +61,28 @@ export default function NonUserHome({ photos }) {
                                 </div>
                             </div>
                         </div>
-                        <footer>
-                            <span>Connect with the developer :</span>
-                            <div>
-                                <a href="https://github.com/bandrewi">
-                                    <img src="https://i.imgur.com/lkKyqhT.png" />
-                                </a>
+                        <footer className="flex-row">
+                            {/* <span>Connect with the developer :</span> */}
+                            <div id="footer-inner" className="flex-row">
+                                <div id="technologies" className="flex-row">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" />
+                                    <img src="https://i.imgur.com/MoFw3WD.png" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" />
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" />
+                                    <img src="https://i.imgur.com/E8GbqHf.png" />
+                                    <img id='last-tech' src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" />
+                                    {/* <img src="" /> */}
+                                </div>
+                                <div id='about' className="flex-row">
+                                    <a href="https://github.com/bandrewi" target='_blank'>
+                                        <img className="about-image" src="https://i.imgur.com/lkKyqhT.png" />
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/andrew-bui-26b718237/" target='_blank'>
+                                        <img className="about-image" src="https://i.imgur.com/hLlhx14.png" />
+                                    </a>
+                                </div>
                             </div>
                         </footer>
                     </>

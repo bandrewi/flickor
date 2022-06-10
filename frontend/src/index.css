@@ -26,10 +26,9 @@ body {
 }
 
 footer {
-    display: flex;
     justify-content: center;
     align-items: center;
-    height: 45px;
+    height: 50px;
     background-color: rgba(0, 0, 0, 1);
     position: absolute;
     bottom: 0;
@@ -42,6 +41,30 @@ footer>span {
     padding-right: 20px;
 }
 
-footer>div>a>img {
-    height: 28px;
+#footer-inner {
+    display: flex;
+}
+
+.flex-row {
+    display: flex
+}
+
+#technologies>img {
+    margin-right: 25px;
+    height: 40px;
+}
+
+
+#about {
+    align-items: center;
+}
+
+.about-image {
+    height: 30px;
+    margin-right: 25px;
+}
+
+#last-tech {
+    border-right: 1px solid white;
+    padding-right: 20px;
 }
