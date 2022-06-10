@@ -42,21 +42,31 @@ export default function NonUserHome({ photos }) {
         <>
             {
                 images.length > 0 && (
-                    <div>
-                        {/* <div id='bg-img' style={{ backgroundImage: `url(${bgImg})` }} /> */}
-                        {/* <div id='nonuserhome-photo-container-outer' class='' style={{ backgroundImage: `url(${images[photoNum + 1]})` }} /> */}
-                        {/* {images.forEach(image => (
+                    <>
+                        <div>
+                            {/* <div id='bg-img' style={{ backgroundImage: `url(${bgImg})` }} /> */}
+                            {/* <div id='nonuserhome-photo-container-outer' class='' style={{ backgroundImage: `url(${images[photoNum + 1]})` }} /> */}
+                            {/* {images.forEach(image => (
                             <div className={ } />
                         ))} */}
-                        <div id='nonuserhome-photo-container-inner' style={{ backgroundImage: `url(${images[photoNum]})` }}>
-                            {/* <img id='nonuserhome-photo' src={photos[photoNum].imageUrl} /> */}
-                            <h1 id='heading'>Find your inspiration.</h1>
-                            <h2 id="heading-2">Join the Flickor community, home to some photos and a couple users.</h2>
-                            <div>
-                                <button id='demo-btn' onClick={handleClick}>Start for free</button>
+                            <div id='nonuserhome-photo-container-inner' style={{ backgroundImage: `url(${images[photoNum]})` }}>
+                                {/* <img id='nonuserhome-photo' src={photos[photoNum].imageUrl} /> */}
+                                <h1 id='heading'>Find your inspiration.</h1>
+                                <h2 id="heading-2">Join the Flickor community, home to some photos and a couple users.</h2>
+                                <div>
+                                    <button id='demo-btn' onClick={handleClick}>Start for free</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <footer>
+                            <span>Connect with the developer :</span>
+                            <div>
+                                <a href="https://github.com/bandrewi">
+                                    <img src="https://i.imgur.com/lkKyqhT.png" />
+                                </a>
+                            </div>
+                        </footer>
+                    </>
                 )
             }
         </>
