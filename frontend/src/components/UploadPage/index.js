@@ -20,7 +20,7 @@ export default function UploadPage() {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        console.log('photo', photo)
+        // console.log('photo', photo)
         return history.push(`/photos/${photo.photo.id}`)
     }
 

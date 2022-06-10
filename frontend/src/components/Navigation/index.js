@@ -8,7 +8,7 @@ import UploadButton from './UploadButton';
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
     const location = useLocation()
-    console.log('LOCATION', location.pathname)
+    // console.log('LOCATION', location.pathname)
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (

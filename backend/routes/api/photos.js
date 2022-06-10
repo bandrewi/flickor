@@ -39,7 +39,7 @@ router.get('/', asyncHandler(async (req, res) => {
 router.get('/users/:id(\\d+)', restoreUser, asyncHandler(async (req, res) => {
     // const { id } = req.user
     const id = req.params.id
-    console.log(id)
+    // console.log(id)
     const photos = await Photo.findAll({
         order: [["id", "DESC"]],
         limit: 10,
