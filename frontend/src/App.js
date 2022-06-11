@@ -24,7 +24,6 @@ function App() {
   useEffect(() => {
     (async () => {
       const user = await dispatch(sessionActions.restoreUser());
-      console.log('user', user.user.id)
       if (user) {
         await dispatch(getPhotos());
         await dispatch(getUserPhotos(user.user.id));

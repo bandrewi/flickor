@@ -44,9 +44,9 @@ export default function SinglePhoto() {
         }
     }
 
-    useEffect(() => {
-        if (photo) dispatch(getUserPhotos(photo.userId))
-    }, [dispatch])
+    // useEffect(() => {
+    //     if (photo) dispatch(getUserPhotos(photo.userId))
+    // }, [dispatch])
 
     useEffect(() => {
         dispatch(getFavorites())
