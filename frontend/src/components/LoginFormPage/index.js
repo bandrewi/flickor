@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { login } from "../../store/session";
 
 import './LoginForm.css';
+import { getPhotos, getUserPhotos } from '../../store/photo';
 
 export default function LoginFormPage() {
     const dispatch = useDispatch();
@@ -17,10 +18,12 @@ export default function LoginFormPage() {
         <Redirect to="/" />
     );
 
-    const handleClick = () => {
+    const handleClick = async () => {
         const credential = 'demo@user.io'
         const password = 'password'
-        dispatch(login({ credential, password }))
+        await dispatch(login({ credential, password }))
+        await dispatch(getPhotos())
+        await dispatch(getUserPhotos(sessionUser.id))
     }
 
     const handleSubmit = (e) => {
