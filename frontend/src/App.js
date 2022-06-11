@@ -14,11 +14,23 @@ import { getPhotos, getUserPhotos } from "./store/photo";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  // useEffect(() => {
+  //   dispatch(sessionActions.restoreUser())
+  //     // .then(() => dispatch(getPhotos()))
+  //     // .then(() => dispatch(getUserPhotos()))
+  //     .then(() => setIsLoaded(true));
+  // }, [dispatch]);
+
   useEffect(() => {
-    dispatch(sessionActions.restoreUser())
-      // .then(() => dispatch(getPhotos()))
-      // .then(() => dispatch(getUserPhotos()))
-      .then(() => setIsLoaded(true));
+    (async () => {
+      const user = await dispatch(sessionActions.restoreUser());
+      console.log('user', user.user.id)
+      if (user) {
+        await dispatch(getPhotos());
+        await dispatch(getUserPhotos(user.user.id));
+      }
+      setIsLoaded(true);
+    })();
   }, [dispatch]);
 
   return (
