@@ -16,7 +16,7 @@ export default function UserHome({ photos }) {
                         <Link to={`/photos/${photo.id}`} className='photo'>
                             <Photo photo={photo} />
                         </Link>
-                        <div className='photo-content'>{photo.content} </div>
+                        <div className='photo-content'>{photo.userName} </div>
                     </li>
                 ))}
             </ul>
