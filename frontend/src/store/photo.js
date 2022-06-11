@@ -5,7 +5,7 @@ const DELETE = 'photo/DELETE'
 const EDIT = 'photo/EDIT'
 const LOAD = 'photos/LOAD'
 // const LOAD_ONE = 'photos/LOAD_ONE'
-const LOAD_USER_PHOTOS = 'photos/LOAD_USER_PHOTOS'
+export const LOAD_USER_PHOTOS = 'photos/LOAD_USER_PHOTOS'
 
 
 const addPhoto = (photo) => ({
@@ -111,10 +111,10 @@ export default function photoReducer(state = initializedState, action) {
             newState = {}
             action.photos.forEach(photo => newState[photo.id] = photo)
             return newState
-        case LOAD_USER_PHOTOS:
-            newState = {}
-            action.photos.forEach(photo => newState[photo.id] = photo)
-            return newState
+        // case LOAD_USER_PHOTOS:
+        //     newState = {}
+        //     action.photos.forEach(photo => newState[photo.id] = photo)
+        //     return newState
         case ADD:
             newState = { ...state }
             newState[action.photo.id] = action.photo
