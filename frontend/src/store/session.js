@@ -74,6 +74,10 @@ export default function sessionReducer(state = initialiedState, action) {
             newState['photos'] = {}
             action.photos.forEach(photo => newState.photos[photo.id] = photo)
             return newState
+        case ADD:
+            newState = { ...state }
+            newState.photos[action.photo.id] = action.photo
+            return newState
         default:
             return state
     }
