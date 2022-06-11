@@ -1,20 +1,20 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+// import { useEffect, useState } from 'react';
 
 import UserHome from './UserHome';
 import NonUserHome from './NonUserHome';
-import * as photoActions from '../../store/photo';
+// import * as photoActions from '../../store/photo';
 
 import './Home.css';
 
 export default function Home() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const photos = useSelector(state => Object.values(state.photos));
 
-    useEffect(() => {
-        dispatch(photoActions.getPhotos())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(photoActions.getPhotos())
+    // }, [dispatch])
 
     let homePage;
     if (sessionUser) {

@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf"
+import { LOAD_USER_PHOTOS, ADD, DELETE, EDIT } from "./photo"
 
 const SET_USER = 'session/setUser'
 const REMOVE_USER = 'session/removeUser'
@@ -33,7 +34,7 @@ export const restoreUser = () => async dispatch => {
     const response = await csrfFetch('/api/session');
     const data = await response.json();
     dispatch(setUser(data.user));
-    return response;
+    return data;
 };
 
 export const signup = (user) => async (dispatch) => {
@@ -67,6 +68,23 @@ export default function sessionReducer(state = initialiedState, action) {
         case REMOVE_USER:
             newState = { ...state }
             newState.user = null
+            return newState
+        case LOAD_USER_PHOTOS:
+            newState = { ...state }
+            newState['photos'] = {}
+            action.photos.forEach(photo => newState.photos[photo.id] = photo)
+            return newState
+        case ADD:
+            newState = { ...state }
+            newState.photos[action.photo.id] = action.photo
+            return newState
+        case DELETE:
+            newState = { ...state }
+            delete newState.photos[action.id]
+            return newState
+        case EDIT:
+            newState = { ...state }
+            newState.photos[action.photo.id] = action.photo
             return newState
         default:
             return state

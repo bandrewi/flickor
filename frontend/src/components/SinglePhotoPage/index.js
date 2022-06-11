@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { Link, useHistory, useParams } from "react-router-dom"
+import { Link, Redirect, useHistory, useParams } from "react-router-dom"
 import { addFavorite, getFavorites, removeFavorite } from "../../store/favorite";
 import { deletePhoto, editPhoto, getPhoto, getUserPhotos } from "../../store/photo";
 
@@ -44,9 +44,9 @@ export default function SinglePhoto() {
         }
     }
 
-    useEffect(() => {
-        if (photo) dispatch(getUserPhotos(photo.userId))
-    }, [dispatch])
+    // useEffect(() => {
+    //     if (photo) dispatch(getUserPhotos(photo.userId))
+    // }, [dispatch])
 
     useEffect(() => {
         dispatch(getFavorites())
@@ -56,9 +56,9 @@ export default function SinglePhoto() {
         if (photo) setContent(photo.content)
     }, [])
 
-    const handleDelete = () => {
-        dispatch(deletePhoto(id))
-        history.push('/photos')
+    const handleDelete = async () => {
+        const done = await dispatch(deletePhoto(id))
+        if (done) history.push('/photos')
     }
 
     const handleEdit = () => {
@@ -109,6 +109,10 @@ export default function SinglePhoto() {
     // console.log('RENDER')
     // console.log('photo', photo)
     // console.log('content', content)
+    if (!photo) {
+        return <Redirect to='/photos' />
+    }
+
     return (
         <>
             {photos.length > 0 && (

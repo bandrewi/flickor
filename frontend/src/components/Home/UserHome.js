@@ -1,9 +1,18 @@
+// import { useEffect } from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+// import { getUserPhotos } from '../../store/photo'
 
 import Photo from '../Photo'
 import './UserHome.css'
 
 export default function UserHome({ photos }) {
+    // const dispatch = useDispatch()
+    // const user = useSelector(state => state.session.user)
+
+    // useEffect(() => {
+    //     dispatch(getUserPhotos(user.id))
+    // }, [dispatch])
 
     return (
         <div id='userhome-photo-container-outer'>

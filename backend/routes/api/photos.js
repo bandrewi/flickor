@@ -76,7 +76,7 @@ router.post('/new', restoreUser, requireAuth, validatePhoto, asyncHandler(async 
         imageUrl,
         content
     });
-
+    photo.setDataValue('userName', req.user.username)
     return res.json({ photo });
 }))
 

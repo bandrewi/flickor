@@ -84,8 +84,8 @@
 }
 
 #content {
-    border: white solid 1px;
-    color: white;
+    border: black solid 1px;
+    color: black;
     width: 300px;
     text-align: center;
     font-size: 20px;
@@ -94,17 +94,17 @@
 }
 
 #nonuser-content {
-    border: white solid 1px;
+    border: black solid 1px;
     width: 300px;
     text-align: center;
     font-size: 20px;
-    color: white;
+    color: black;
     padding-top: 6px;
     padding-bottom: 6px;
 }
 
 #content:hover {
-    background-color: rgb(243, 242, 241);
+    background-color: rgba(0, 0, 0, 0.295);
     color: rgb(32, 31, 30);
     cursor: pointer;
 }
@@ -112,6 +112,7 @@
 #edit {
     height: 20px;
     display: none;
+    background-color: black;
 }
 
 #content:hover+#edit {
