@@ -9,13 +9,20 @@ import './UserPhotos.css'
 export default function UserPhotos() {
     const dispatch = useDispatch();
     const sessionUserId = useSelector(state => state.session.user.id)
-    const photosArr = useSelector(state => Object.values(state.photos))
+
+    // Object.values in 2 lines of code bc on refresh can not Object.values something null
+    const photos = useSelector(state => state.session.photos)
+    const photosArr = photos ? Object.values(photos) : []
 
     //not efficient making multiple fetch calls when only have to make one and pass down as props
     //when refactoring solve this issue
 
     useEffect(() => {
-        if (sessionUserId) dispatch(getUserPhotos(sessionUserId))
+        (async () => {
+            if (sessionUserId) {
+                await dispatch(getUserPhotos(sessionUserId))
+            }
+        })()
     }, [dispatch])
 
     return (
