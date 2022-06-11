@@ -82,6 +82,10 @@ export default function sessionReducer(state = initialiedState, action) {
             newState = { ...state }
             delete newState.photos[action.id]
             return newState
+        case EDIT:
+            newState = { ...state }
+            newState.photos[action.photo.id] = action.photo
+            return newState
         default:
             return state
     }
