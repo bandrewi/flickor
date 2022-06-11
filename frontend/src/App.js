@@ -9,12 +9,16 @@ import Home from "./components/Home";
 import UploadPage from "./components/UploadPage";
 import UserPhotos from "./components/UserPhotos";
 import SinglePhotoPage from "./components/SinglePhotoPage";
+import { getPhotos, getUserPhotos } from "./store/photo";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser())
+      // .then(() => dispatch(getPhotos()))
+      // .then(() => dispatch(getUserPhotos()))
+      .then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
