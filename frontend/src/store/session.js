@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf"
+import { LOAD_USER_PHOTOS } from "./photo"
 
 const SET_USER = 'session/setUser'
 const REMOVE_USER = 'session/removeUser'
@@ -67,6 +68,11 @@ export default function sessionReducer(state = initialiedState, action) {
         case REMOVE_USER:
             newState = { ...state }
             newState.user = null
+            return newState
+        case LOAD_USER_PHOTOS:
+            newState = { ...state }
+            newState['photos'] = {}
+            action.photos.forEach(photo => newState.photos[photo.id] = photo)
             return newState
         default:
             return state
