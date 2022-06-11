@@ -16,23 +16,26 @@ export default function Home() {
     //     dispatch(photoActions.getPhotos())
     // }, [dispatch])
 
-    let homePage;
-    if (sessionUser) {
-        homePage = (
-            <UserHome photos={(photos)} />
-        )
-    } else {
-        homePage = (
-            <NonUserHome photos={(photos)} />
-        )
-    }
+    // if (sessionUser) {
+    //     homePage = (
+    //         <UserHome photos={(photos)} />
+    //     )
+    // } else {
+    //     homePage = (
+    //         <NonUserHome />
+    //         // <NonUserHome photos={(photos)} />
+    //     )
+    // }
     // console.log('photos', photos)
     //already made the query to sort by id descending but it looks like useSelector
     //is sorting the array elements by id 
     //BOTH LIMIT AND ORDER QUERIES WORK
     return (
         <>
-            {photos.length > 0 && homePage}
+            {sessionUser ? <UserHome photos={(photos)} />
+                : <NonUserHome />
+            }
+            {/* {photos.length > 0 && homePage} */}
         </>
     )
 }
