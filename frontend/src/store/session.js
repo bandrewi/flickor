@@ -1,5 +1,5 @@
 import { csrfFetch } from "./csrf"
-import { LOAD_USER_PHOTOS } from "./photo"
+import { LOAD_USER_PHOTOS, ADD, DELETE, EDIT } from "./photo"
 
 const SET_USER = 'session/setUser'
 const REMOVE_USER = 'session/removeUser'
