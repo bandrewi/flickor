@@ -14,19 +14,25 @@ import { getPhotos, getUserPhotos } from "./store/photo";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   // useEffect(() => {
   //   dispatch(sessionActions.restoreUser())
-  //     // .then(() => dispatch(getPhotos()))
-  //     // .then(() => dispatch(getUserPhotos()))
-  //     .then(() => setIsLoaded(true));
+  //     .then(user => {
+  //       if (user) {
+  //         dispatch(getUserPhotos(user.id))
+  //           .then(() => dispatch(getPhotos()))
+  //       }
+  //     })
+  //     .then(() => setIsLoaded(true))
   // }, [dispatch]);
 
   useEffect(() => {
     (async () => {
       const user = await dispatch(sessionActions.restoreUser());
+      // console.log('USER', user)
       if (user) {
         await dispatch(getPhotos());
-        await dispatch(getUserPhotos(user.user.id));
+        await dispatch(getUserPhotos(user.id));
       }
       setIsLoaded(true);
     })();
