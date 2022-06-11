@@ -1,8 +1,8 @@
 import { csrfFetch } from "./csrf"
 
-const ADD = 'photo/ADD'
-const DELETE = 'photo/DELETE'
-const EDIT = 'photo/EDIT'
+export const ADD = 'photo/ADD'
+export const DELETE = 'photo/DELETE'
+export const EDIT = 'photo/EDIT'
 const LOAD = 'photos/LOAD'
 // const LOAD_ONE = 'photos/LOAD_ONE'
 export const LOAD_USER_PHOTOS = 'photos/LOAD_USER_PHOTOS'
