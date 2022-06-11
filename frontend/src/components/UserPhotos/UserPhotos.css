@@ -1,7 +1,12 @@
+#userphotos-container-outer {}
+
 #userphotos-container {
-    /* flex-wrap: wrap;
     display: flex;
-    justify-content: space-around; */
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    flex-wrap: wrap;
+    margin-top: 100px;
+    justify-content: center
+}
+
+.user-photo {
+    margin-right: 5px;
 }
