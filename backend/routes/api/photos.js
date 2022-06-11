@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { handleValidationErrors } = require('../../utils/validation');
-const { Photo } = require('../../db/models');
+const { Photo, User } = require('../../db/models');
 const { requireAuth, restoreUser } = require('../../utils/auth');
 
 const router = express.Router();
@@ -26,11 +26,18 @@ validateEditPhoto = [
 ]
 //Get photos
 router.get('/', asyncHandler(async (req, res) => {
-    const photos = await Photo.findAll({
+    const images = await Photo.findAll({
         order: [["id", 'DESC']],
         limit: 10,
         //could possibly add other filters like most favorited, most recent etc
     })
+
+    const photos = await Promise.all(images.map(async image => {
+        const user = await User.findByPk(image.userId)
+        image.setDataValue('userName', user.username)
+
+        return image
+    }))
 
     return res.json({ photos });
 }))
