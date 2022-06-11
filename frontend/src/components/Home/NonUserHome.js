@@ -72,6 +72,7 @@ export default function NonUserHome({ photos }) {
                                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="" />
                                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="" />
                                     <img src="https://i.imgur.com/E8GbqHf.png" alt="" />
+                                    <img src="https://i.imgur.com/v4MGQKD.png" alt="" />
                                     <img id='last-tech' src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="" />
                                     {/* <img src="" /> */}
                                 </div>
