@@ -22,6 +22,9 @@ function Navigation({ isLoaded }) {
                     <li id='your-photos'>
                         <NavLink to='/photos'>Your Photos</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='/favorites'>Favorites</NavLink>
+                    </li>
                 </ul>
                 <ul id='user-right-nav'>
                     <li id='nav-upload-btn'>
