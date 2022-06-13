@@ -2,18 +2,25 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { requireAuth, restoreUser } = require('../../utils/auth');
-const { Favorite } = require('../../db/models')
+const { Favorite, Photo } = require('../../db/models');
 
 const router = express.Router();
 
 //Get favorite
 router.get('/', requireAuth, restoreUser, asyncHandler(async (req, res) => {
     const { id: userId } = req.user
-    const favorite = await Favorite.findAll({
+    const favorites = await Favorite.findAll({
         where: {
             userId,
         }
     })
+
+    const favorite = await Promise.all(favorites.map(async favorite => {
+        const photo = await Photo.findByPk(favorite.photoId)
+        favorite.setDataValue('imageUrl', photo.imageUrl)
+
+        return favorite
+    }))
 
     return res.json(favorite)
     //don't have to send objects in res.json()
