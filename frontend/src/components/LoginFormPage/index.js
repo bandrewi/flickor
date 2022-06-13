@@ -21,9 +21,11 @@ export default function LoginFormPage() {
     const handleClick = async () => {
         const credential = 'demo@user.io'
         const password = 'password'
-        await dispatch(login({ credential, password }))
+        const user = await dispatch(login({ credential, password }))
+        if (user) {
         await dispatch(getPhotos())
-        await dispatch(getUserPhotos(sessionUser.id))
+            await dispatch(getUserPhotos(user.id))
+        }
     }
 
     const handleSubmit = (e) => {
