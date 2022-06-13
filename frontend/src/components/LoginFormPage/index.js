@@ -23,7 +23,7 @@ export default function LoginFormPage() {
         const password = 'password'
         const user = await dispatch(login({ credential, password }))
         if (user) {
-        await dispatch(getPhotos())
+            await dispatch(getPhotos())
             await dispatch(getUserPhotos(user.id))
         }
     }
@@ -33,7 +33,7 @@ export default function LoginFormPage() {
         setErrors([]);
         dispatch(sessionActions.login({ credential, password }))
             .then(user => dispatch(getUserPhotos(user.id)))
-            .then(dispatch(getPhotos()))
+            .then(() => dispatch(getPhotos()))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
