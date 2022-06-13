@@ -13,25 +13,25 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <div className='nav-bar user-nav'>
-                <ul id='nav-bar-ul'>
-                    <ul id='user-left-nav'>
-                        <li id='user-flickor-li'>
-                            <img className='flickor-logo' src='https://i.imgur.com/SpPAHbL.png' alt='' />
-                            <NavLink exact to="/">flickor</NavLink>
-                        </li>
-                        <li id='your-photos'>
-                            <NavLink to='/photos'>Your Photos</NavLink>
-                        </li>
-                    </ul>
-                    <ul id='user-right-nav'>
-                        <li id='nav-upload-btn'>
-                            <UploadButton />
-                        </li>
-                        <li id='profile-btn'>
-                            <ProfileButton user={sessionUser} />
-                        </li>
-                    </ul>
+                {/* <div id='nav-bar-div'> */}
+                <ul id='user-left-nav'>
+                    <li id='user-flickor-li'>
+                        <img className='flickor-logo' src='https://i.imgur.com/SpPAHbL.png' alt='' />
+                        <NavLink exact to="/">flickor</NavLink>
+                    </li>
+                    <li id='your-photos'>
+                        <NavLink to='/photos'>Your Photos</NavLink>
+                    </li>
                 </ul>
+                <ul id='user-right-nav'>
+                    <li id='nav-upload-btn'>
+                        <UploadButton />
+                    </li>
+                    <li id='profile-btn'>
+                        <ProfileButton user={sessionUser} />
+                    </li>
+                </ul>
+                {/* </div> */}
             </div>
         );
     } else {
