@@ -40,6 +40,15 @@ a {
     align-items: flex-start;
 } */
 
+#nav-bar-ul {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 0px
+}
+
 #nonuser-flickor-li {
     padding-left: 20px;
 }
