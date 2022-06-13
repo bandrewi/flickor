@@ -11,7 +11,7 @@ import UserPhotos from "./components/UserPhotos";
 import SinglePhotoPage from "./components/SinglePhotoPage";
 import { getPhotos, getUserPhotos } from "./store/photo";
 import FavoritesPage from "./components/FavoritesPage";
-import { getFavorites } from "./store/favorite";
+// import { getFavorites } from "./store/favorite";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function App() {
       if (user) {
         await dispatch(getPhotos());
         await dispatch(getUserPhotos(user.id));
-        await dispatch(getFavorites())
+        // await dispatch(getFavorites())
       }
       setIsLoaded(true);
     })();
