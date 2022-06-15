@@ -22,7 +22,7 @@ function Navigation({ isLoaded }) {
                     <li id='your-photos'>
                         <NavLink to='/photos'>Your Photos</NavLink>
                     </li>
-                    <li>
+                    <li id='your-favs'>
                         <NavLink to='/favorites'>Favorites</NavLink>
                     </li>
                 </ul>
