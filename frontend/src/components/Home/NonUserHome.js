@@ -28,7 +28,7 @@ export default function NonUserHome({ photos }) {
     useEffect(() => {
         const photoInterval = setInterval(() => {
             setPhotoNum(prevNum => ++prevNum % images.length);
-        }, 5000);
+        }, 2500);
         return () => clearInterval(photoInterval);
     }, []);
     //with changeimage add photoNum to dependency
