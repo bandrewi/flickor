@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Redirect, useHistory, useParams } from "react-router-dom"
 import { addFavorite, getFavorites, removeFavorite } from "../../store/favorite";
-import { deletePhoto, editPhoto, getPhoto, getUserPhotos } from "../../store/photo";
+import { deletePhoto, editPhoto } from "../../store/photo";
 
 import './SinglePhoto.css'
 
@@ -105,9 +105,7 @@ export default function SinglePhoto() {
             await dispatch(addFavorite(photo.id))
         }
     }
-    // console.log('RENDER')
-    // console.log('photo', photo)
-    // console.log('content', content)
+
     if (!photo) {
         return <Redirect to='/photos' />
     }
