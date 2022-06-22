@@ -20,29 +20,26 @@ export default function SinglePhoto() {
     const history = useHistory()
     const photo = photos.find(photo => photo.id === +id)
     const favorite = favorites.find(favorite => favorite.photoId === +id)
-    const photoIdx = photos.indexOf(photo)
+    const photoIdx = userPhotos.indexOf(photo)
 
     //using another useEffect is redundant when refactoring try passing photos in as a prop
     // useEffect(() => {
     //     dispatch(getPhoto(id))
     // }, [dispatch])
 
-
-    //for the below code, I for some forgot how to index into an array so I used the at method
-    //leaving this as a mark of shame
     let nextPhotoId
     let prevPhotoId
-    if (photos.length > 0) {
-        if (photoIdx === photos.length - 1) {
-            nextPhotoId = photos.at(0).id
+    if (userPhotos.length > 0) {
+        if (photoIdx === userPhotos.length - 1) {
+            nextPhotoId = userPhotos[0].id
         } else {
-            nextPhotoId = photos.at(photoIdx + 1).id
+            nextPhotoId = userPhotos[photoIdx + 1].id
         }
 
         if (photoIdx === 0) {
-            prevPhotoId = photos.at(photos.length - 1).id
+            prevPhotoId = userPhotos[userPhotos.length - 1].id
         } else {
-            prevPhotoId = photos.at(photoIdx - 1).id
+            prevPhotoId = userPhotos[photoIdx - 1].id
         }
     }
 
