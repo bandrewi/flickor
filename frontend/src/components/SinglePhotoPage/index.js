@@ -8,7 +8,7 @@ import './SinglePhoto.css'
 
 export default function SinglePhoto() {
     const dispatch = useDispatch();
-    const photos = useSelector(state => Object.values(state.photos))
+    const photos = useSelector(state => Object.values(state.session.photos))
     const sessionUserId = useSelector(state => state.session.user.id)
     const favorites = useSelector(state => Object.values(state.favorites))
     const [editClicked, setEditClicked] = useState(false)
