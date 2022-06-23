@@ -16,7 +16,13 @@ export default function FavoritesPage() {
             <ul id='userphotos-container'>
                 {favorites.map(favorite => (
                     <li key={favorite.id}>
-                        <Link to={`/photos/${favorite.photoId}`}>
+                        <Link to={{
+                            pathname: `/favorites/${favorite.photoId}`,
+                            state: {
+                                linkFav: favorite.id
+                            }
+                        }}
+                        >
                             <img className='photo user-photo' src={favorite.imageUrl} alt="" />
                         </Link>
                     </li>
