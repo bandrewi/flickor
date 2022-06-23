@@ -76,11 +76,22 @@
     height: 100%;
 }
 
+#info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+#info-user {
+    align-self: center;
+    margin-bottom: 10px;
+}
+
 #content-container {
     /* border: black solid 1px; */
     display: flex;
     justify-content: center;
-    padding-top: 30px;
 }
 
 #content {
