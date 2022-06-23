@@ -4,9 +4,7 @@ import { Link, Redirect, useParams } from "react-router-dom"
 import { addFavorite, getFavorites, removeFavorite } from "../../store/favorite";
 import { deletePhoto, editPhoto } from "../../store/photo";
 
-import './SinglePhoto.css'
-
-export default function SinglePhoto() {
+export default function SinglePage() {
     const dispatch = useDispatch();
     const { id } = useParams()
 
@@ -17,32 +15,11 @@ export default function SinglePhoto() {
     const sessionUserId = useSelector(state => state.session.user.id)
     const photos = useSelector(state => Object.values(state.photos))
     const photo = photos.find(photo => photo.id === +id)
-    const userPhotos = photos.filter(image => image.userId === photo?.userId)
+    // const userPhotos = photos.filter(image => image.userId === photo?.userId)
 
     const favorites = useSelector(state => Object.values(state.favorites))
     const favorite = favorites.find(favorite => favorite.photoId === +id)
-    const photoIdx = userPhotos.indexOf(photo)
-
-    //using another useEffect is redundant when refactoring try passing photos in as a prop
-    // useEffect(() => {
-    //     dispatch(getPhoto(id))
-    // }, [dispatch])
-
-    let nextPhotoId
-    let prevPhotoId
-    if (userPhotos.length > 0) {
-        if (photoIdx === userPhotos.length - 1) {
-            nextPhotoId = userPhotos[0].id
-        } else {
-            nextPhotoId = userPhotos[photoIdx + 1].id
-        }
-
-        if (photoIdx === 0) {
-            prevPhotoId = userPhotos[userPhotos.length - 1].id
-        } else {
-            prevPhotoId = userPhotos[photoIdx - 1].id
-        }
-    }
+    const favIdx = favorite ? favorites.indexOf(favorite) : 0
 
     useEffect(() => {
         dispatch(getFavorites())
@@ -64,20 +41,21 @@ export default function SinglePhoto() {
     const handlePrev = () => {
         setEditClicked(false)
         setErrors([])
-        if (photoIdx === 0) {
-            setContent(photos[photos.length - 1].content)
+
+        if (favIdx === 0) {
+            setContent(favorites[favorites.length - 1].content)
         } else {
-            setContent(photos[photoIdx - 1].content)
+            setContent(favorites[favIdx - 1].content)
         }
     }
 
     const handleNext = () => {
         setEditClicked(false)
         setErrors([])
-        if (photoIdx === photos.length - 1) {
-            setContent(photos[0].content)
+        if (favIdx === favorites.length - 1) {
+            setContent(favorites[0].content)
         } else {
-            setContent(photos[photoIdx + 1].content)
+            setContent(favorites[favIdx + 1].content)
         }
     }
 
@@ -103,18 +81,35 @@ export default function SinglePhoto() {
         }
     }
 
-    if (!photo) {
-        return <Redirect to='/photos' />
-    }
+    // if (!favorite) {
+    //     return <Redirect to='/favorites' />
+    // }
 
+    let nextPhotoId
+    let prevPhotoId
+    if (favorites.length > 0) {
+        if (favIdx === favorites.length - 1) {
+            nextPhotoId = favorites[0].photoId
+        } else {
+            nextPhotoId = favorites[favIdx + 1].photoId
+        }
+
+        if (favIdx === 0) {
+            prevPhotoId = favorites[favorites.length - 1].photoId
+        } else {
+            prevPhotoId = favorites[favIdx - 1]?.photoId
+        }
+    }
+    // console.log('RENDER')
+    // console.log('IDX', favIdx)
     return (
         <>
             {photos.length > 0 && (
                 <>
                     <div id='single-photo-container'>
                         <img id='single-photo' src={photo.imageUrl} alt="" />
-                        <Link className="prev" to={`/photos/${prevPhotoId}`} onClick={handlePrev}>❮</Link>
-                        <Link className="next" to={`/photos/${nextPhotoId}`} onClick={handleNext}>❯</Link>
+                        <Link className="prev" to={`/favorites/${prevPhotoId}`} onClick={handlePrev}>❮</Link>
+                        <Link className="next" to={`/favorites/${nextPhotoId}`} onClick={handleNext}>❯</Link>
                         <div id='btn-container'>
                             {!favorite &&
                                 <img id='fav-image-off' className='fav-image' onClick={handleFavorite} src="https://img.icons8.com/ios/344/ffffff/star--v1.png" alt="" />}

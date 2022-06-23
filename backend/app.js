@@ -40,6 +40,7 @@ app.use(
     })
 );
 
+app.use(express.static('public'))
 app.use(routes);
 
 // Catch unhandled requests and forward to error handler.

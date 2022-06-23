@@ -6,6 +6,7 @@ import { login } from "../../store/session";
 
 import './LoginForm.css';
 import { getPhotos, getUserPhotos } from '../../store/photo';
+// import { getFavorites } from '../../store/favorite';
 
 export default function LoginFormPage() {
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export default function LoginFormPage() {
         if (user) {
             await dispatch(getPhotos())
             await dispatch(getUserPhotos(user.id))
+            // await dispatch(getFavorites())
         }
     }
 
@@ -34,6 +36,7 @@ export default function LoginFormPage() {
         dispatch(sessionActions.login({ credential, password }))
             .then(user => dispatch(getUserPhotos(user.id)))
             .then(() => dispatch(getPhotos()))
+            // .then(() => dispatch(getFavorites()))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);

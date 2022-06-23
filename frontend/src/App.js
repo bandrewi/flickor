@@ -10,6 +10,9 @@ import UploadPage from "./components/UploadPage";
 import UserPhotos from "./components/UserPhotos";
 import SinglePhotoPage from "./components/SinglePhotoPage";
 import { getPhotos, getUserPhotos } from "./store/photo";
+import FavoritesPage from "./components/FavoritesPage";
+import SinglePage from "./components/FavoritesPage/SinglePage";
+// import { getFavorites } from "./store/favorite";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +36,7 @@ function App() {
       if (user) {
         await dispatch(getPhotos());
         await dispatch(getUserPhotos(user.id));
+        // await dispatch(getFavorites())
       }
       setIsLoaded(true);
     })();
@@ -58,8 +62,14 @@ function App() {
           <Route exact path='/photos'>
             <UserPhotos />
           </Route>
+          <Route exact path='/favorites'>
+            <FavoritesPage />
+          </Route>
           <Route path='/photos/:id'>
             <SinglePhotoPage />
+          </Route>
+          <Route path='/favorites/:id'>
+            <SinglePage />
           </Route>
         </Switch>
       )}
