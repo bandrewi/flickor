@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { Link, Redirect, useHistory, useParams } from "react-router-dom"
+import { Link, Redirect, useParams } from "react-router-dom"
 import { addFavorite, getFavorites, removeFavorite } from "../../store/favorite";
 import { deletePhoto, editPhoto } from "../../store/photo";
 
@@ -116,17 +116,6 @@ export default function SinglePhoto() {
                         <Link className="prev" to={`/photos/${prevPhotoId}`} onClick={handlePrev}>❮</Link>
                         <Link className="next" to={`/photos/${nextPhotoId}`} onClick={handleNext}>❯</Link>
                         <div id='btn-container'>
-                            {/* {!editClicked && <div id="content">{photo.content}</div>}
-                        {editClicked && (
-                            <form onSubmit={handleSubmit}>
-                                <input
-                                    type='text'
-                                    value={content}
-                                    onChange={e => setContent(e.target.value)}
-                                />
-                                <button type='submit'>Submit Changes</button>
-                            </form>
-                        )} */}
                             {!favorite &&
                                 <img id='fav-image-off' className='fav-image' onClick={handleFavorite} src="https://img.icons8.com/ios/344/ffffff/star--v1.png" alt="" />}
                             {favorite &&
