@@ -9,16 +9,17 @@ import './SinglePhoto.css'
 export default function SinglePhoto() {
     const dispatch = useDispatch();
     const { id } = useParams()
-    const photos = useSelector(state => Object.values(state.photos))
-    const photo = photos.find(photo => photo.id === +id)
-    const userPhotos = photos.filter(image => image.userId === photo?.userId)
-    const sessionUserId = useSelector(state => state.session.user.id)
-    const favorites = useSelector(state => Object.values(state.favorites))
+
     const [editClicked, setEditClicked] = useState(false)
     const [content, setContent] = useState('')
     const [errors, setErrors] = useState([])
-    const history = useHistory()
-    // const photo = photos.find(photo => photo.id === +id)
+
+    const sessionUserId = useSelector(state => state.session.user.id)
+    const photos = useSelector(state => Object.values(state.photos))
+    const photo = photos.find(photo => photo.id === +id)
+    const userPhotos = photos.filter(image => image.userId === photo?.userId)
+
+    const favorites = useSelector(state => Object.values(state.favorites))
     const favorite = favorites.find(favorite => favorite.photoId === +id)
     const photoIdx = userPhotos.indexOf(photo)
 
