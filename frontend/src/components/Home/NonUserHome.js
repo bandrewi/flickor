@@ -29,7 +29,7 @@ export default function NonUserHome() {
     useEffect(() => {
         const photoInterval = setInterval(() => {
             setPhotoNum(prevNum => ++prevNum % images.length);
-        }, 2500);
+        }, 2000);
         return () => clearInterval(photoInterval);
     }, []);
 
