@@ -18,6 +18,7 @@ router.get('/', requireAuth, restoreUser, asyncHandler(async (req, res) => {
     const favorite = await Promise.all(favorites.map(async favorite => {
         const photo = await Photo.findByPk(favorite.photoId)
         favorite.setDataValue('imageUrl', photo.imageUrl)
+        favorite.setDataValue('content', photo.content)
 
         return favorite
     }))
