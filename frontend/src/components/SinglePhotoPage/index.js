@@ -126,31 +126,34 @@ export default function SinglePhoto() {
                             )}
                         </div>
                     </div>
-                    <div id="content-container">
-                        {!editClicked && (
-                            <>
-                                <div
-                                    id={sessionUserId === photo.userId ? "content" : 'nonuser-content'}
-                                    onClick={sessionUserId === photo.userId ? handleEdit : null}>
-                                    {photo.content}
-                                </div>
-                                {sessionUserId === photo.userId &&
-                                    <img id='edit' src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAxNzIgMTcyIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnIGZpbGw9IiNmZmZmZmYiPjxwYXRoIGQ9Ik0xMzEuOTY3NDQsMTQuMzMzMzNjLTEuODM0NjcsMCAtMy42Njk1NiwwLjcwMjExIC01LjA2NzA2LDIuMDk5NjFsLTE0LjMzMzMzLDE0LjMzMzMzbC0xMC4xMzQxMSwxMC4xMzQxMWwtODAuOTMyOTQsODAuOTMyOTR2MjguNjY2NjdoMjguNjY2NjdsMTA1LjQwMDM5LC0xMDUuNDAwMzljMi44MDIxNywtMi44MDIxNyAyLjgwMjE3LC03LjMzOTExIDAsLTEwLjEzNDEybC0xOC41MzI1NSwtMTguNTMyNTVjLTEuMzk3NSwtMS4zOTc1IC0zLjIzMjM5LC0yLjA5OTYxIC01LjA2NzA2LC0yLjA5OTYxek0xMzEuOTY3NDQsMzEuNjM0MTFsOC4zOTg0NCw4LjM5ODQ0bC05LjI2NjI4LDkuMjY2MjhsLTguMzk4NDQsLTguMzk4NDR6TTExMi41NjcwNiw1MS4wMzQ1MWw4LjM5ODQ0LDguMzk4NDRsLTc2LjczMzcyLDc2LjczMzcyaC04LjM5ODQ0di04LjM5ODQ0eiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+" alt="" />}
-                            </>
-                        )}
-                        {editClicked && (
-                            <form id='edit-form' onSubmit={handleSubmit}>
-                                <input
-                                    type='text'
-                                    value={content}
-                                    onChange={e => setContent(e.target.value)}
-                                />
-                                {errors && <div id='edit-error'>{errors[0]}</div>}
-                                <div id="edit-btn-container">
-                                    <button id='edit-btn' type='submit'>Submit Changes</button>
-                                </div>
-                            </form>
-                        )}
+                    <div id="info-container">
+                        <div id="info-user">{photo.userName}</div>
+                        <div id="content-container">
+                            {!editClicked && (
+                                <>
+                                    <div
+                                        id={sessionUserId === photo.userId ? "content" : 'nonuser-content'}
+                                        onClick={sessionUserId === photo.userId ? handleEdit : null}>
+                                        {photo.content}
+                                    </div>
+                                    {sessionUserId === photo.userId &&
+                                        <img id='edit' src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAxNzIgMTcyIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnIGZpbGw9IiNmZmZmZmYiPjxwYXRoIGQ9Ik0xMzEuOTY3NDQsMTQuMzMzMzNjLTEuODM0NjcsMCAtMy42Njk1NiwwLjcwMjExIC01LjA2NzA2LDIuMDk5NjFsLTE0LjMzMzMzLDE0LjMzMzMzbC0xMC4xMzQxMSwxMC4xMzQxMWwtODAuOTMyOTQsODAuOTMyOTR2MjguNjY2NjdoMjguNjY2NjdsMTA1LjQwMDM5LC0xMDUuNDAwMzljMi44MDIxNywtMi44MDIxNyAyLjgwMjE3LC03LjMzOTExIDAsLTEwLjEzNDEybC0xOC41MzI1NSwtMTguNTMyNTVjLTEuMzk3NSwtMS4zOTc1IC0zLjIzMjM5LC0yLjA5OTYxIC01LjA2NzA2LC0yLjA5OTYxek0xMzEuOTY3NDQsMzEuNjM0MTFsOC4zOTg0NCw4LjM5ODQ0bC05LjI2NjI4LDkuMjY2MjhsLTguMzk4NDQsLTguMzk4NDR6TTExMi41NjcwNiw1MS4wMzQ1MWw4LjM5ODQ0LDguMzk4NDRsLTc2LjczMzcyLDc2LjczMzcyaC04LjM5ODQ0di04LjM5ODQ0eiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+" alt="" />}
+                                </>
+                            )}
+                            {editClicked && (
+                                <form id='edit-form' onSubmit={handleSubmit}>
+                                    <input
+                                        type='text'
+                                        value={content}
+                                        onChange={e => setContent(e.target.value)}
+                                    />
+                                    {errors && <div id='edit-error'>{errors[0]}</div>}
+                                    <div id="edit-btn-container">
+                                        <button id='edit-btn' type='submit'>Submit Changes</button>
+                                    </div>
+                                </form>
+                            )}
+                        </div>
                     </div>
                 </>
             )
