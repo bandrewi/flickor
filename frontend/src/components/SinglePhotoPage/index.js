@@ -55,9 +55,9 @@ export default function SinglePhoto() {
         if (photo) setContent(photo.content)
     }, [])
 
-    const handleDelete = async () => {
-        const done = await dispatch(deletePhoto(id))
-        if (done) history.push('/photos')
+
+    const handleDelete = () => {
+        dispatch(deletePhoto(id))
     }
 
     const handleEdit = () => {
