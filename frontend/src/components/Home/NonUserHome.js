@@ -5,6 +5,16 @@ import './NonUserHome.css'
 
 export default function NonUserHome() {
     const [photoNum, setPhotoNum] = useState(0);
+    // const images = [
+    //     'https://combo.staticflickr.com/ap/build/images/sohp/2020-top-25/If_Only_We_Could_Turn_Back_Time_Anna_Kwa.jpg',
+    //     'https://combo.staticflickr.com/ap/build/images/sohp/2020-top-25/Frosch_Bokeh_2_Axel_F.jpg',
+    //     'https://combo.staticflickr.com/ap/build/images/sohp/2020-top-25/Dawn_of_Another_Day_Sky_Matthews.jpg',
+    //     'https://combo.staticflickr.com/ap/build/images/sohp/2020-top-25/Fantasy_Island_Daniel_Cheong.jpg',
+    //     'https://combo.staticflickr.com/ap/build/images/sohp/2020-top-25/Desert_Beauty_Christoph_Fischer.jpg',
+    //     'https://combo.staticflickr.com/ap/build/images/sohp/2020-top-25/sunset_1663_Junji_Aoyama.jpg',
+    //     'https://combo.staticflickr.com/ap/build/images/sohp/2020-top-25/Cool_Power_commended-LPOTY_UK_Steve_Cole.jpg',
+    //     'https://combo.staticflickr.com/ap/build/images/sohp/2020-top-25/Mists_of_renfrew_Adam_Gibbs.jpg',
+    // ]
     const images = [
         '/images/If_Only_We_Could_Turn_Back_Time_Anna_Kwa.jpg',
         '/images/Frosch_Bokeh_2_Axel_F.jpg',
@@ -28,12 +38,10 @@ export default function NonUserHome() {
             {
                 images.length > 0 && (
                     <>
+                        {images.map(image => (
+                            <link rel="preload" href={image} as='image' />
+                        ))}
                         <div>
-                            {/* <div id='bg-img' style={{ backgroundImage: `url(${bgImg})` }} /> */}
-                            {/* <div id='nonuserhome-photo-container-outer' class='' style={{ backgroundImage: `url(${images[photoNum + 1]})` }} /> */}
-                            {/* {images.forEach(image => (
-                            <div className={ } />
-                        ))} */}
                             <div id='nonuserhome-photo-container-inner' style={{ backgroundImage: `url(${images[photoNum]})` }}>
                                 {/* <img id='nonuserhome-photo' src={photos[photoNum].imageUrl} /> */}
                                 <h1 id='heading'>Find your inspiration.</h1>
